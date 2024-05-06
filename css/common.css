@@ -1,0 +1,55 @@
+*{
+    font-family:Georgia, 'Times New Roman', Times, serif
+}
+
+body{
+    margin:0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 100px;
+    margin-right: 100px;
+    background-color: beige;
+
+}
+header{
+    /* background-color: rgb(247, 231, 197); */
+    /* height: 100px; */
+    padding: 40px;
+    background-image: url(/img/Nimagen-header.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+div.contenedor{
+    display: flex;
+    height: 79vh;
+}
+
+section{
+    background-color: rgb(145, 168, 47);
+    width: 80px;
+    padding: 35px;
+    flex-grow: 1;
+    
+}
+
+main{
+    background-color: rgb(227, 72, 57);
+    width: 80px;
+    padding: 35px;
+    flex-grow: 3;
+    order: 1;
+}
+
+footer{
+    background-color: rgb(227, 164, 37);
+    height: 80px;
+
+}
+
+header h1{
+    color: antiquewhite;
+    margin: 0;
+    text-align: center;
+    padding: 0;
+}

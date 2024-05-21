@@ -29,7 +29,7 @@
                 <form class="selector">
                     <label for="selecMoneda">Seleccione una moneda:</label>
                     <select name="selecMoneda" id="selecMoneda">
-                        <option value="todas">TODAS</option>
+                        <option value="todas">Todas</option>
                         <option value="dolarOficial">Dólar Oficial</option>
                         <option value="dolarBlue">Dólar Blue</option>
                         <option value="dolarMEP">Dólar Bolsa(MEP)</option>
@@ -42,7 +42,7 @@
                         <option value="pesoChileno">Peso Chileno</option>
                         <option value="pesoUruguayo">Peso Uruguayo</option>
                     </select>
-                    <button type="button"><i class="fa-solid fa-filter"></i></button>
+                    <button type="button" class="filtrar"><i class="fa-solid fa-filter"></i></button>
                 </form>
                 <div class="datosActualizados"><p>Datos actualizados al 15/04/2024 17:30hs</p></div>
                 <div class="cotizaciones">
@@ -144,8 +144,10 @@
                     </div>
 
                 </div>
-                <p class="recordatorio"><strong>!</strong>Haga clic en la estrella para guardar los datos de la cotización en sus favoritos</p>
-                <div class="bibliografia">Datos obtenidos de:</div>
+                <p class="recordatorio"><strong>! </strong>Haga clic en la estrella para guardar los datos de la cotización en sus favoritos</p>
+                <div class="bibliografia">
+                  <p>Datos obtenidos de <a href="api">DolarApi.com</a></p>
+                </div>
             </div>
       </main>
       <section class="side-bar">

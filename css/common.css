@@ -218,7 +218,6 @@ main {
   justify-content: space-evenly;
   align-items: center;
   width: 60%;
-  background-color: green;
   background-color: #f3f3f3;
   border: 1px solid #dfdfdf;
   border-radius: 10px;
@@ -227,6 +226,24 @@ main {
 
 .selector label {
   font-size: 15px;
+}
+
+.selector select {
+  background-color: #ffffff;
+  border: 1px solid #dfdfdf;
+  padding: 10px;
+  width: 50%;
+}
+
+.filtrar {
+  font-size: 30px;
+  border: none;
+  background-color: transparent;
+}
+
+.fa-filter {
+  cursor: pointer;
+  color: #ffb555;
 }
 
 .datosActualizados {
@@ -299,10 +316,31 @@ main {
 
 .recordatorio {
   grid-area: recordatorio;
+  padding: 20px 0 10px 0;
+}
+
+.recordatorio strong {
+  font-size: 25px;
 }
 
 .bibliografia {
   grid-area: biblio;
+  display: flex;
+  width: 100%;
+  justify-content: end;
+}
+
+.bibliografia p {
+  padding: 6px 3px;
+  background-color: #dfdfdf;
+}
+
+.bibliografia a {
+  padding: 3px;
+  border-radius: 5px;
+  background-color: #4444d1;
+  text-decoration: none;
+  color: #ffffff;
 }
 
 /*-------- FOOTER ---------*/

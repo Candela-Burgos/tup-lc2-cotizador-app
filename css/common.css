@@ -405,6 +405,40 @@ footer li {
 
 /*----------------- PAGE: MI ARCHIVO ------------------*/
 
+.miArchivo {
+  background-color: white;
+  border-radius: 30px;
+  border: 1px solid #2778bf;
+  padding: 20px;
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.tabla {
+  width: 100%;
+  border: 1px solid #000;
+  border-radius: 20px;
+  background-color: #c7e0ff;
+}
+
+.tituloTabla{
+  padding: 10px 10px 20px 10px;
+}
+
+.tabla tbody{
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.tabla tbody tr td{
+  background-color: #fff;
+  border-radius: 10px;
+  border: 1px solid #ffabab;
+}
+
 /*----------------- MEDIA ------------------*/
 
 @media screen and (max-width: 1024px) {

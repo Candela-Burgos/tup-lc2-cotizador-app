@@ -20,10 +20,134 @@
       <h1><i class="fa-solid fa-coins"></i>Cotizador de Monedas</h1>
     </header>
     <section class="migas_de_pan">
-      <p><b>Usted esta parado en:</b> Contacto</p>
+      <p><b>Usted esta parado en:</b> Inicio</p>
     </section>
     <div class="contenedor">
-      <main></main>
+      <main> 
+        <div class="pizzarra">
+                <h1>Pizzarra de Cotizaciones</h1>
+                <form class="selector">
+                    <label for="selecMoneda">Seleccione una moneda:</label>
+                    <select name="selecMoneda" id="selecMoneda">
+                        <option value="todas">TODAS</option>
+                        <option value="dolarOficial">Dólar Oficial</option>
+                        <option value="dolarBlue">Dólar Blue</option>
+                        <option value="dolarMEP">Dólar Bolsa(MEP)</option>
+                        <option value="dolarCCL">Dólar Contado con Liqui(CCL)</option>
+                        <option value="dolarTarjeta">Dólar Tarjeta</option>
+                        <option value="dolarMayorista">Dólar Mayorista</option>
+                        <option value="dolarCripto">Dólar Cripto</option>
+                        <option value="euro">Euro</option>
+                        <option value="realBrasil">Real Brasileño</option>
+                        <option value="pesoChileno">Peso Chileno</option>
+                        <option value="pesoUruguayo">Peso Uruguayo</option>
+                    </select>
+                    <button type="button"><i class="fa-solid fa-filter"></i></button>
+                </form>
+                <div class="datosActualizados"><p>Datos actualizados al 15/04/2024 17:30hs</p></div>
+                <div class="cotizaciones">
+                    <div class="cotizacion">
+                        <div class="moneda">
+                            <p>OFICIAL</p>
+                            <div class="compraventa">
+                                <div class="compra">
+                                  <h5>COMPRA</h5>
+                                  <p>$890</p>
+                                </div>
+                                <div class="venta">
+                                  <h5>VENTA</h5>
+                                  <p>$1289</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="botonFavorito"><i class="fa-solid fa-star pintada"></i></button>
+                    </div>
+                    <div class="cotizacion">
+                        <div class="moneda">
+                            <p>BLUE</p>
+                            <div class="compraventa">
+                                <div class="compra">
+                                  <h5>COMPRA</h5>
+                                  <p>$890</p>
+                                </div>
+                                <div class="venta">
+                                  <h5>VENTA</h5>
+                                  <p>$1289</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="botonFavorito"><i class="fa-solid fa-star"></i></button>
+                    </div>
+                    <div class="cotizacion">
+                        <div class="moneda">
+                            <p>TARJETA</p>
+                            <div class="compraventa">
+                                <div class="compra">
+                                  <h5>COMPRA</h5>
+                                  <p>$890</p>
+                                </div>
+                                <div class="venta">
+                                  <h5>VENTA</h5>
+                                  <p>$1289</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="botonFavorito"><i class="fa-solid fa-star"></i></button>
+                    </div>
+                    <div class="cotizacion">
+                        <div class="moneda">
+                            <p>MEP</p>
+                            <div class="compraventa">
+                                <div class="compra">
+                                  <h5>COMPRA</h5>
+                                  <p>$890</p>
+                                </div>
+                                <div class="venta">
+                                  <h5>VENTA</h5>
+                                  <p>$1289</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="botonFavorito"><i class="fa-solid fa-star"></i></button>
+                    </div>
+                    <div class="cotizacion">
+                        <div class="moneda">
+                            <p>CCL</p>
+                            <div class="compraventa">
+                                <div class="compra">
+                                  <h5>COMPRA</h5>
+                                  <p>$890</p>
+                                </div>
+                                <div class="venta">
+                                  <h5>VENTA</h5>
+                                  <p>$1289</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="botonFavorito"><i class="fa-solid fa-star"></i></button>
+                    </div>
+                    <div class="cotizacion">
+                        <div class="moneda">
+                            <p>CRIPTO</p>
+                            <div class="compraventa">
+                                <div class="compra">
+                                  <h5>COMPRA</h5>
+                                  <p>$890</p>
+                                </div>
+                                <div class="venta">
+                                  <h5>VENTA</h5>
+                                  <p>$1289</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="botonFavorito"><i class="fa-solid fa-star pintada"></i></button>
+                    </div>
+
+                </div>
+                <p class="recordatorio"><strong>!</strong>Haga clic en la estrella para guardar los datos de la cotización en sus favoritos</p>
+                <div class="bibliografia">Datos obtenidos de:</div>
+            </div>
+      </main>
       <section class="side-bar">
         <div class="side-bar-links">
           <ul>
@@ -70,7 +194,7 @@
               class="user-icon"
             />
             <div class="texto">
-              <h3>Santiago Tell</h3>
+              <h3>Valeria Grosso</h3>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
                 in nobis molestias exercitationem?
@@ -84,7 +208,7 @@
               class="user-icon"
             />
             <div class="texto">
-              <h3>Valerio Grosso</h3>
+              <h3>Santiago Tell</h3>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
                 in nobis molestias exercitationem?

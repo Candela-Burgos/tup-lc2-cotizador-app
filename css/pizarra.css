@@ -1,0 +1,191 @@
+.pizzarra {
+  display: grid;
+  background-color: white;
+  border-radius: 30px;
+  border: 1px solid #2778bf;
+  padding: 20px;
+  font-size: 15px;
+  grid-template-areas:
+    "h1"
+    "selector"
+    "datosActualizados"
+    "cotizaciones"
+    "recordatorio"
+    "biblio";
+}
+
+.pizzarra h1 {
+  grid-area: h1;
+  text-align: center;
+  padding-bottom: 5px;
+}
+
+.selector {
+  grid-area: selector;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 60%;
+  background-color: #f3f3f3;
+  border: 1px solid #dfdfdf;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.selector label {
+  font-size: 15px;
+}
+
+.selector select {
+  background-color: #ffffff;
+  border: 1px solid #dfdfdf;
+  padding: 10px;
+  width: 50%;
+}
+
+.filtrar {
+  font-size: 30px;
+  border: none;
+  background-color: transparent;
+}
+
+.fa-filter {
+  cursor: pointer;
+  color: #ffb555;
+}
+
+.datosActualizados {
+  grid-area: datosActualizados;
+  text-align: right;
+  padding: 5px 60px 5px 0;
+}
+
+.cotizaciones {
+  grid-area: cotizaciones;
+  background-color: #f3f3f3;
+  border: 1px solid #dfdfdf;
+  border-radius: 25px 50px;
+  padding: 20px;
+  height: 70%;
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.cotizacion {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 50%;
+  min-width: 300px;
+}
+
+.moneda {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: #ffffff;
+  margin: 10px;
+  padding: 10px;
+  box-shadow: 0px 0px 15px -3px #00000030;
+}
+
+.botonFavorito {
+  font-size: 30px;
+  border: none;
+  background-color: transparent;
+}
+
+.fa-star {
+  color: #c7e0ff;
+  cursor: pointer;
+}
+
+.pintada {
+  color: #2778bf;
+}
+
+.botonFavorito:hover {
+  background-color: transparent;
+}
+
+.botonFavorito:active {
+  background-color: transparent;
+}
+
+.compraventa {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 40%;
+}
+
+.compra,
+.venta {
+  text-align: center;
+}
+
+.recordatorio {
+  grid-area: recordatorio;
+  padding: 5px 0 10px 0;
+}
+
+.recordatorio strong {
+  font-size: 25px;
+}
+
+.bibliografia {
+  grid-area: biblio;
+  display: flex;
+  width: 100%;
+  justify-content: end;
+}
+
+.bibliografia p {
+  padding: 6px 3px;
+  background-color: #dfdfdf;
+}
+
+.bibliografia a {
+  padding: 3px;
+  border-radius: 5px;
+  background-color: #4444d1;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+/*----------------- MEDIA ------------------*/
+
+@media screen and (max-width: 1730px) {
+  .cotizaciones {
+    align-items: center;
+    flex-flow: column nowrap;
+    height: auto;
+  }
+
+  .cotizacion {
+    width: 90%;
+  }
+}
+
+@media  screen and (max-width: 1420px) {
+    .selector {
+        width: auto;
+    }
+
+    .datosActualizados {
+        font-size: 12px;
+    }
+
+    .recordatorio {
+        font-size: 12px;
+    }
+
+    .recordatorio strong {
+        font-size: 18px;
+    }
+
+    .bibliografia p {
+        font-size: 12px;
+    }
+}

@@ -1,0 +1,133 @@
+.informes {
+  background-color: white;
+  border-radius: 30px;
+  border: 1px solid #2778bf;
+  padding: 20px;
+  font-size: 15px;
+  display: grid;
+  grid-template-areas:
+    "h1 h1"
+    "selector grafico"
+    "compInfo grafico"
+    "tabla tabla";
+}
+
+h1 {
+  grid-area: h1;
+  text-align: center;
+}
+
+.selector {
+  grid-area: selector;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-flow: row wrap;
+  width:80%;
+  background-color: #f3f3f3;
+  border: 1px solid #dfdfdf;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.selector label {
+  font-size: 15px;
+}
+
+.selector select {
+  background-color: #ffffff;
+  border: 1px solid #dfdfdf;
+  padding: 10px;
+  width: 80%;
+}
+
+.filtrar {
+  font-size: 30px;
+  border: none;
+  background-color: transparent;
+}
+
+.fa-filter {
+  cursor: pointer;
+  color: #ffb555;
+  margin-left: 10px;
+}
+
+.compartirInfo {
+  grid-area: compInfo;
+  display: flex;
+  align-items: flex-end;
+  padding: 10px;
+  color: #000;
+}
+
+.fa-envelope-open-text {
+    font-size: 30px;
+    padding-right: 10px;
+    color: #2778bf;
+}
+
+.grafico {
+  grid-area: grafico;
+  padding: 20px 0;
+}
+
+.titulo {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.fa-print {
+  font-size: 25px;
+  color: #2778bf;
+}
+
+.fa-eraser {
+  font-size: 20px;
+  color: #ffb555;
+}
+
+.contenedorTabla {
+  grid-area: tabla;
+  width: 100%;
+  max-height: 800px;
+  overflow-y: auto;
+  border: 1px solid #2778bf;
+  border-radius: 20px;
+}
+
+.tabla {
+  width: 100%;
+  border-radius: 20px;
+  background-color: #c7e0ff;
+  overflow: hidden;
+}
+
+th {
+  background-color: #c7e0ff;
+  position: sticky;
+  top: 0;
+}
+
+th,
+td {
+  padding: 10px;
+}
+
+.tituloTabla {
+  padding: 10px 10px 20px 10px;
+}
+
+.tabla tbody {
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.tabla tbody tr td {
+  background-color: #fff;
+  text-align: center;
+}

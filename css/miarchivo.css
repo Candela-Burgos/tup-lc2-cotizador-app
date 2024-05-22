@@ -1,0 +1,73 @@
+.miArchivo {
+  background-color: white;
+  border-radius: 30px;
+  border: 1px solid #2778bf;
+  padding: 20px;
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.titulo {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.fa-print {
+  font-size: 25px;
+  color: #2778bf;
+}
+
+.fa-eraser {
+  font-size: 20px;
+  color: #ffb555;
+}
+
+.contenedorTabla {
+  width: 100%;
+  max-height: 800px;
+  overflow-y: auto;
+  border: 1px solid #2778bf;
+  border-radius: 20px;
+}
+
+.tabla {
+  width: 100%;
+  border-radius: 20px;
+  background-color: #c7e0ff;
+  overflow: hidden;
+}
+
+th {
+  background-color: #c7e0ff;
+  position: sticky;
+  top: 0;
+}
+
+th,
+td {
+  padding: 10px;
+}
+
+.tituloTabla {
+  padding: 10px 10px 20px 10px;
+}
+
+.tabla tbody {
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.tabla tbody tr td {
+  background-color: #fff;
+  text-align: center;
+}
+
+/* tr:nth-child(even){
+   background-color: #c7e0ffad; 
+} */

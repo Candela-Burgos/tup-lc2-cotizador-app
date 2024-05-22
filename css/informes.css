@@ -1,3 +1,86 @@
+/*------------------MODAL ENVIAR DATOS-------------------*/
+
+.contenedorModal {
+  display: none; /* debo cambiar a "display: flex" para que se muestre la modal */
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #000000d2;
+  z-index: 100;
+}
+
+.modalEnviarDatos {
+  background-color: #65b6fc;
+  border: 1px solid #2778bf;
+  padding: 20px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.modalEnviarDatos h2 {
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.formDatos {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.formDatos label {
+  padding-bottom: 5px;
+}
+
+.formDatos input {
+  padding: 10px;
+  width: 70%;
+  border-radius: 5px;
+  border: 1px solid #929292;
+}
+
+#nombre {
+  margin-bottom: 10px;
+}
+
+.btns {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.btnCancelar {
+  padding: 5px 20px;
+  margin-right: 5px;
+  background-color: #929292;
+  border: 1px solid #7e7e7e;
+  border-radius: 8px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.btnEnviar {
+  padding: 5px 28px;
+  margin-left: 5px;
+  background-color: #38cf33;
+  border: 1px solid #34ba30;
+  border-radius: 8px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/*------------------INFORME-------------------*/
+
 .informes {
   background-color: white;
   border-radius: 30px;

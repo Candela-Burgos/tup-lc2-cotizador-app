@@ -1,9 +1,16 @@
+.flexPizarra {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .pizzarra {
   display: grid;
   background-color: white;
   border-radius: 30px;
   border: 1px solid #2778bf;
   padding: 20px;
+  width: 100%;
   font-size: 15px;
   grid-template-areas:
     "h1"
@@ -152,6 +159,52 @@
   background-color: #4444d1;
   text-decoration: none;
   color: #ffffff;
+}
+
+/*----------------- ALERTAS ------------------*/
+
+.contenedorSuccess {
+  display: none; /* debo cambiar a "display: flex" para que se muestre la alerta */
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 100;
+}
+
+.cajaSuccess {
+  background-color: #28a745d8;
+  padding: 20px 40px;
+  border-radius: 30px;
+  color: #fff;
+}
+
+.contenedorWarning {
+  display: none; /* debo cambiar a "display: flex" para que se muestre la alerta */
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 100;
+}
+
+.cajaWarning {
+  background-color: #ffc107d8;
+  padding: 20px 40px;
+  border-radius: 30px;
+}
+
+.contenedorError {
+  display: none; /* debo cambiar a "display: flex" para que se muestre la alerta */
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 100;
+}
+
+.cajaError {
+  background-color: #dc3545d8;
+  padding: 20px 40px;
+  border-radius: 30px;
+  color: #fff;
 }
 
 /*----------------- MEDIA ------------------*/

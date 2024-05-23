@@ -51,42 +51,21 @@
   margin-bottom: 10px;
 }
 
-.btns {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  width: 100%;
-  margin-top: 20px;
-}
-
-.btnCancelar {
-  padding: 5px 20px;
-  margin-right: 5px;
-  background-color: #929292;
-  border: 1px solid #7e7e7e;
-  border-radius: 8px;
-  color: #ffffff;
-  cursor: pointer;
-}
-
-.btnEnviar {
-  padding: 5px 28px;
-  margin-left: 5px;
-  background-color: #38cf33;
-  border: 1px solid #34ba30;
-  border-radius: 8px;
-  color: #ffffff;
-  cursor: pointer;
-}
-
 /*------------------INFORME-------------------*/
 
+.flexInformes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .informes {
-  background-color: white;
+  background-color: #ffffff;
   border-radius: 30px;
   border: 1px solid #2778bf;
   padding: 20px;
   font-size: 15px;
+  width: 100%;
   display: grid;
   grid-template-areas:
     "h1 h1"
@@ -100,18 +79,24 @@ h1 {
   text-align: center;
 }
 
-.selector {
+.contenedorSelector {
   grid-area: selector;
   display: flex;
   justify-content: flex-start;
   align-items: center;
+}
+
+.selector {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   flex-flow: row wrap;
-  width:80%;
+  width: 80%;
+  height: 100px;
   background-color: #f3f3f3;
   border: 1px solid #dfdfdf;
   border-radius: 10px;
   padding: 10px;
-  margin-top: 20px;
 }
 
 .selector label {
@@ -146,14 +131,16 @@ h1 {
 }
 
 .fa-envelope-open-text {
-    font-size: 30px;
-    padding-right: 10px;
-    color: #2778bf;
+  font-size: 30px;
+  padding-right: 10px;
+  color: #2778bf;
 }
 
 .grafico {
   grid-area: grafico;
-  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .titulo {
@@ -213,4 +200,50 @@ td {
 .tabla tbody tr td {
   background-color: #fff;
   text-align: center;
+}
+
+/*----------------- ALERTAS ------------------*/
+
+.contenedorSuccess {
+  display: none; /* debo cambiar a "display: flex" para que se muestre la alerta */
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 100;
+}
+
+.cajaSuccess {
+  background-color: #28a745d8;
+  padding: 20px 40px;
+  border-radius: 30px;
+  color: #fff;
+}
+
+.contenedorWarning {
+  display: none; /* debo cambiar a "display: flex" para que se muestre la alerta */
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 100;
+}
+
+.cajaWarning {
+  background-color: #ffc107d8;
+  padding: 20px 40px;
+  border-radius: 30px;
+}
+
+.contenedorError {
+  display: none; /* debo cambiar a "display: flex" para que se muestre la alerta */
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 100;
+}
+
+.cajaError {
+  background-color: #dc3545d8;
+  padding: 20px 40px;
+  border-radius: 30px;
+  color: #fff;
 }

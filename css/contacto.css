@@ -1,0 +1,168 @@
+.flexContacto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenedorContacto {
+  background-color: #ffffff;
+  border-radius: 30px;
+  border: 1px solid #2778bf;
+  padding: 20px;
+  font-size: 15px;
+  display: grid;
+  grid-template-areas:
+    "h1 h1"
+    "formContacto sugerencia"
+    "formContacto cajaDatos";
+}
+
+h1 {
+  grid-area: h1;
+  text-align: center;
+}
+
+.datosDeContacto {
+  grid-area: formContacto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row wrap;
+}
+
+.formContacto {
+  width: 80%;
+  background-color: #f3f3f3;
+  border: 1px solid #dfdfdf;
+  border-radius: 25px 50px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.campoEntrada {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  width: 80%;
+}
+
+#campoNombre,
+#campoEmail {
+  align-items: center;
+}
+
+.formContacto input, textarea {
+  padding: 10px;
+  width: 70%;
+  border-radius: 5px;
+  border: 1px solid #929292;
+  margin: 10px 0;
+}
+
+.btns {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 80%;
+}
+
+.sugerencia {
+  grid-area: sugerencia;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.sugerencia p {
+  margin-bottom: 20px;
+}
+
+.contenedorCajaDatos {
+  grid-area: cajaDatos;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cajaDatos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 150px;
+  background-color: #ffffff;
+  border: 1px solid #929292;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.dato {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: flex-start;
+  flex-direction: column;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo img{
+  width: 150px;
+}
+
+/*----------------- ALERTAS ------------------*/
+
+.contenedorSuccess {
+  display: none; /* debo cambiar a "display: flex" para que se muestre la alerta */
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 100;
+}
+
+.cajaSuccess {
+  background-color: #28a745d8;
+  padding: 20px 40px;
+  border-radius: 30px;
+  color: #fff;
+}
+
+.contenedorWarning {
+  display: none; /* debo cambiar a "display: flex" para que se muestre la alerta */
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 100;
+}
+
+.cajaWarning {
+  background-color: #ffc107d8;
+  padding: 20px 40px;
+  border-radius: 30px;
+}
+
+.contenedorError {
+  display: none; /* debo cambiar a "display: flex" para que se muestre la alerta */
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 100;
+}
+
+.cajaError {
+  background-color: #dc3545d8;
+  padding: 20px 40px;
+  border-radius: 30px;
+  color: #fff;
+}
+
+/*----------------- MEDIA ------------------*/
+
+/* @media screen and (max-width: 1024px) {
+  .logo img {
+    width: 50%;
+  }
+} */

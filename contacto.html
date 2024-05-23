@@ -6,6 +6,7 @@
     <title>Cotizador</title>
     <link rel="icon" href="img/favicon.ico" />
     <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/contacto.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -20,10 +21,94 @@
       <h1><i class="fa-solid fa-coins"></i>Cotizador de Monedas</h1>
     </header>
     <section class="migas_de_pan">
-      <p><b>Usted esta parado en:</b> <a class="volverInicio" href="/index.html">Inicio</a>  / Contacto</p>
+      <p>
+        <b>Usted esta parado en:</b>
+        <a class="volverInicio" href="/index.html">Inicio</a> / Contacto
+      </p>
     </section>
     <div class="contenedor">
-      <main></main>
+      <main>
+        <div class="flexContacto">
+          <!-- Alertas -->
+
+          <div class="contenedorSuccess">
+            <div class="cajaSuccess">
+              <p>ÉXITO: La operación ha sido exitosa!</p>
+            </div>
+          </div>
+
+          <div class="contenedorWarning">
+            <div class="cajaWarning">
+              <p>PELIGRO: La operación ha sido incorrecta.</p>
+            </div>
+          </div>
+
+          <div class="contenedorError">
+            <div class="cajaError">
+              <p>
+                ERROR: Ha ocurrido un error al intentar consultar los datos.
+              </p>
+            </div>
+          </div>
+
+          <!-- Alertas -->
+          <div class="contenedorContacto">
+            <h1>Contacto Web Cotizaciones</h1>
+            <!-- formulario -->
+            <div class="datosDeContacto">
+              <form class="formContacto">
+                <h2>DATOS DE CONTACTO</h2>
+                <div class="campoEntrada" id="campoNombre">
+                  <label for="nombre">Nombre:</label>
+                  <input type="text" name="nombre" id="nombre" />
+                </div>
+                <div class="campoEntrada" id="campoEmail">
+                  <label for="email">Email:</label>
+                  <input type="text" name="email" id="email" />
+                </div>
+                <div class="campoEntrada" id="campoMensaje">
+                  <label for="mensaje">Mensaje:</label>
+                  <textarea
+                    name="mensaje"
+                    id="mensaje"
+                    maxlength="200"
+                  ></textarea>
+                </div>
+              </form>
+              <div class="btns">
+                <button class="btnLimpiar">Limpiar</button>
+                <button class="btnEnviar">Enviar</button>
+              </div>
+            </div>
+            <!-- formulario -->
+            <div class="sugerencia">
+              <p>
+                Si tiene alguna sugerencia o inconveniente por favor complete el
+                siguiente formulario y envíenoslo. Lo contactaremos a la
+                brevedad.
+              </p>
+              <p>
+                Esta web esta desarrollada utilizando
+                <a href="#dolarapi">https://dolarapi.com/</a>
+              </p>
+            </div>
+            <div class="contenedorCajaDatos">
+              <div class="cajaDatos">
+                <div class="dato">
+                  <h2>DATOS DE CONTACTO</h2>
+                  <p>Universidad Tecnológica Nacional</p>
+                  <p>ZEBALLOS 1341 - S2000BQA</p>
+                  <p>ROSARIO</p>
+                  <p>0341 - 4481871</p>
+                </div>
+                <div class="logo">
+                  <img src="/img/UTN_logo.jpg" alt="logo de la UTN" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
       <section class="side-bar">
         <div class="side-bar-links">
           <ul>

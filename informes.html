@@ -17,16 +17,15 @@
   </head>
 
   <body>
-    
     <!-- Modal Datos del destinatario -->
     <div class="contenedorModal">
       <div class="modalEnviarDatos">
         <h2>DATOS DEL DESTINATARIO</h2>
         <form class="formDatos">
           <label for="nombre">Nombre:</label>
-          <input type="text" name="nombre" id="nombre">
+          <input type="text" name="nombre" id="nombre" />
           <label for="email">Email:</label>
-          <input type="email" name="email" id="email">
+          <input type="email" name="email" id="email" />
           <div class="btns">
             <button class="btnCancelar">Cancelar</button>
             <button class="btnEnviar">Enviar</button>
@@ -47,102 +46,131 @@
     </section>
     <div class="contenedor">
       <main>
-        <div class="informes">
-          <h1>Informe</h1>
-          <!-- select -->
-          <form class="selector">
-            <label for="selecMoneda">Seleccione una moneda:</label>
-            <select name="selecMoneda" id="selecMoneda">
-              <option value="todas">Todas</option>
-              <option value="dolarOficial">Dólar Oficial</option>
-              <option value="dolarBlue">Dólar Blue</option>
-              <option value="dolarMEP">Dólar Bolsa(MEP)</option>
-              <option value="dolarCCL">Dólar Contado con Liqui(CCL)</option>
-              <option value="dolarTarjeta">Dólar Tarjeta</option>
-              <option value="dolarMayorista">Dólar Mayorista</option>
-              <option value="dolarCripto">Dólar Cripto</option>
-              <option value="euro">Euro</option>
-              <option value="realBrasil">Real Brasileño</option>
-              <option value="pesoChileno">Peso Chileno</option>
-              <option value="pesoUruguayo">Peso Uruguayo</option>
-            </select>
-            <button type="button" class="filtrar">
-              <i class="fa-solid fa-filter"></i>
-            </button>
-          </form>
+        <div class="flexInformes">
+          <!-- Alertas -->
 
-          <!-- select -->
-
-          <a href="#compartir-info" class="compartirInfo"
-            ><i class="fa-solid fa-envelope-open-text"></i> Compartir
-            Información</a
-          >
-
-          <!-- imagen de grafico -->
-          <div class="grafico">
-            <img
-              src="/img/grafico.jpg"
-              width="100%"
-              height="80%"
-              alt="Imagen de el grafico"
-            />
+          <div class="contenedorSuccess">
+            <div class="cajaSuccess">
+              <p>ÉXITO: La operación ha sido exitosa!</p>
+            </div>
           </div>
-          <!-- imagen de grafico -->
-          <div class="contenedorTabla">
-            <table class="tabla">
-              <thead>
-                <tr>
-                  <th class="tituloTabla">MONEDA</th>
-                  <th class="tituloTabla">FECHA</th>
-                  <th class="tituloTabla">COMPRA</th>
-                  <th class="tituloTabla">VENTA</th>
-                  <th class="tituloTabla">VARIACIÓN</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td rowspan="5">Dólar Blue</td>
-                  <td>15/04/2024</td>
-                  <td>$995</td>
-                  <td>$1015</td>
-                  <td>
-                    <i class="fa-solid fa-arrow-down"></i>
-                  </td>
-                </tr>
-                <tr>
-                  <td>14/04/2024</td>
-                  <td>$996.09</td>
-                  <td>$1000.06</td>
-                  <td>
-                    <i class="fa-solid fa-arrow-up"></i>
-                  </td>
-                </tr>
-                <tr>
-                  <td>13/04/2024</td>
-                  <td>$1355.2</td>
-                  <td>$1419.2</td>
-                  <td>
-                    <i class="fa-solid fa-arrow-down"></i>
-                  </td>
-                </tr>
-                <tr>
-                  <td>12/04/2024</td>
-                  <td>$1050</td>
-                  <td>$1086</td>
-                  <td>
-                    <i class="fa-solid fa-arrow-up"></i>
-                  </td>
-                </tr>
-                <tr>
-                  <td>11/04/2024</td>
-                  <td>$1000</td>
-                  <td>$1200</td>
-                  <td>
-                    <i class="fa-solid fa-arrow-up"></i>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+
+          <div class="contenedorWarning">
+            <div class="cajaWarning">
+              <p>PELIGRO: La operación ha sido incorrecta.</p>
+            </div>
+          </div>
+
+          <div class="contenedorError">
+            <div class="cajaError">
+              <p>
+                ERROR: Ha ocurrido un error al intentar consultar los datos.
+              </p>
+            </div>
+          </div>
+
+          <!-- Alertas -->
+          <div class="informes">
+            <h1>Informe</h1>
+            <!-- select -->
+            <div class="contenedorSelector">
+              <form class="selector">
+                <label for="selecMoneda">Seleccione una moneda:</label>
+                <select name="selecMoneda" id="selecMoneda">
+                  <option value="todas">Todas</option>
+                  <option value="dolarOficial">Dólar Oficial</option>
+                  <option value="dolarBlue">Dólar Blue</option>
+                  <option value="dolarMEP">Dólar Bolsa(MEP)</option>
+                  <option value="dolarCCL">Dólar Contado con Liqui(CCL)</option>
+                  <option value="dolarTarjeta">Dólar Tarjeta</option>
+                  <option value="dolarMayorista">Dólar Mayorista</option>
+                  <option value="dolarCripto">Dólar Cripto</option>
+                  <option value="euro">Euro</option>
+                  <option value="realBrasil">Real Brasileño</option>
+                  <option value="pesoChileno">Peso Chileno</option>
+                  <option value="pesoUruguayo">Peso Uruguayo</option>
+                </select>
+                <button type="button" class="filtrar">
+                  <i class="fa-solid fa-filter"></i>
+                </button>
+              </form>
+            </div>
+
+            <!-- select -->
+
+            <div class="compartirInfo">
+              <a href="#compartir-info"
+                ><i class="fa-solid fa-envelope-open-text"></i> Compartir
+                Información</a
+              >
+            </div>
+
+            <!-- imagen de grafico -->
+            <div class="grafico">
+              <img
+                src="/img/grafico.jpg"
+                width="100%"
+                height="80%"
+                alt="Imagen de el grafico"
+              />
+            </div>
+            <!-- imagen de grafico -->
+            <div class="contenedorTabla">
+              <table class="tabla">
+                <thead>
+                  <tr>
+                    <th class="tituloTabla">MONEDA</th>
+                    <th class="tituloTabla">FECHA</th>
+                    <th class="tituloTabla">COMPRA</th>
+                    <th class="tituloTabla">VENTA</th>
+                    <th class="tituloTabla">VARIACIÓN</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td rowspan="5">Dólar Blue</td>
+                    <td>15/04/2024</td>
+                    <td>$995</td>
+                    <td>$1015</td>
+                    <td>
+                      <i class="fa-solid fa-arrow-down"></i>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>14/04/2024</td>
+                    <td>$996.09</td>
+                    <td>$1000.06</td>
+                    <td>
+                      <i class="fa-solid fa-arrow-up"></i>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>13/04/2024</td>
+                    <td>$1355.2</td>
+                    <td>$1419.2</td>
+                    <td>
+                      <i class="fa-solid fa-arrow-down"></i>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>12/04/2024</td>
+                    <td>$1050</td>
+                    <td>$1086</td>
+                    <td>
+                      <i class="fa-solid fa-arrow-up"></i>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>11/04/2024</td>
+                    <td>$1000</td>
+                    <td>$1200</td>
+                    <td>
+                      <i class="fa-solid fa-arrow-up"></i>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </main>

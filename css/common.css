@@ -251,6 +251,38 @@ footer li {
   grid-area: tup;
 }
 
+/*----------------- BOTONES ------------------*/
+
+.btns {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.btnCancelar, .btnLimpiar {
+  padding: 5px 20px;
+  margin-right: 5px;
+  background-color: #929292;
+  border: 1px solid #7e7e7e;
+  border-radius: 8px;
+  color: #ffffff;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.btnEnviar {
+  padding: 5px 28px;
+  margin-left: 5px;
+  background-color: #38cf33;
+  border: 1px solid #34ba30;
+  border-radius: 8px;
+  color: #ffffff;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
 /*----------------- MEDIA ------------------*/
 
 @media screen and (max-width: 1024px) {

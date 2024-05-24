@@ -79,6 +79,13 @@ h1 {
   text-align: center;
 }
 
+.contenedorSelectBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
 .contenedorSelector {
   grid-area: selector;
   display: flex;
@@ -88,9 +95,9 @@ h1 {
 
 .selector {
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-flow: row wrap;
+  justify-content: center;
+  align-items: flex-start;
+  flex-flow: column wrap;
   width: 80%;
   height: 100px;
   background-color: #f3f3f3;
@@ -101,6 +108,7 @@ h1 {
 
 .selector label {
   font-size: 15px;
+  margin: 0 0 10px 5px;
 }
 
 .selector select {
@@ -141,6 +149,11 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.grafico img {
+  width: 500px;
+  height: 80%;
 }
 
 .titulo {
@@ -246,4 +259,287 @@ td {
   padding: 20px 40px;
   border-radius: 30px;
   color: #fff;
+}
+
+/*----------------- MEDIA ------------------*/
+
+@media screen and (max-width: 1524px) {
+  .grafico img {
+    width: 400px;
+    height: 80%;
+  }
+}
+
+@media screen and (max-width: 1290px) {
+  h1 {
+    font-size: 25px;
+    margin-bottom: 10px;
+  }
+
+  .grafico img {
+    width: 300px;
+    height: 80%;
+  }
+
+  .fa-envelope-open-text {
+    font-size: 25px;
+  }
+
+  .compartirInfo {
+    font-size: 12px;
+  }
+
+  .tabla {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 1160px) {
+  .selector label {
+    font-size: 12px;
+  }
+
+  .selector select {
+    font-size: 11px;
+  }
+
+  .filtrar {
+    font-size: 25px;
+  }
+}
+
+@media screen and (max-width: 1065px) {
+  .fa-envelope-open-text {
+    font-size: 20px;
+  }
+
+  .compartirInfo {
+    font-size: 10px;
+  }
+
+  .selector label {
+    font-size: 10px;
+  }
+
+  .selector select {
+    font-size: 9px;
+  }
+
+  .filtrar {
+    font-size: 20px;
+  }
+
+  .tabla {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 835px) {
+  .informes {
+    grid-template-areas:
+      "h1"
+      "selector"
+      "grafico"
+      "compInfo"
+      "tabla";
+  }
+
+  .contenedorSelector {
+    justify-content: center;
+  }
+
+  .selector {
+    align-items: center;
+    width: 100%;
+  }
+
+  .selector label {
+    font-size: 15px;
+  }
+
+  .selector select {
+    font-size: 12px;
+  }
+
+  .filtrar {
+    font-size: 30px;
+  }
+
+  .fa-envelope-open-text {
+    font-size: 30px;
+  }
+
+  .compartirInfo {
+    font-size: 15px;
+  }
+
+  .grafico img {
+    width: 450px;
+    height: 80%;
+  }
+
+  .tabla {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 775px) {
+  .grafico img {
+    width: 350px;
+    height: 80%;
+  }
+
+  .tabla {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .filtrar {
+    font-size: 25px;
+  }
+
+  .fa-envelope-open-text {
+    font-size: 25px;
+  }
+
+  .compartirInfo {
+    font-size: 12px;
+  }
+
+  .grafico img {
+    width: 300px;
+    height: 80%;
+  }
+
+  .tabla {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .fa-envelope-open-text {
+    font-size: 30px;
+  }
+
+  .compartirInfo {
+    font-size: 15px;
+  }
+
+  .grafico img {
+    width: 400px;
+    height: 80%;
+  }
+
+  .tabla {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  h1 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .fa-envelope-open-text {
+    font-size: 25px;
+  }
+
+  .compartirInfo {
+    font-size: 12px;
+  }
+
+  .grafico img {
+    width: 350px;
+    height: 80%;
+  }
+
+  .tabla {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  h1 {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+
+  .selector {
+    align-items: center;
+    width: 100%;
+    height: 70px;
+  }
+
+  .selector label {
+    font-size: 12px;
+  }
+
+  .selector select {
+    font-size: 10px;
+  }
+
+  .filtrar {
+    font-size: 25px;
+  }
+
+  .fa-envelope-open-text {
+    font-size: 20px;
+  }
+
+  .compartirInfo {
+    font-size: 10px;
+  }
+
+  .grafico img {
+    width: 300px;
+    height: 80%;
+  }
+
+  .tabla {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  h1 {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+
+  .selector {
+    align-items: center;
+    width: 100%;
+    height: 60px;
+  }
+
+  .selector label {
+    font-size: 10px;
+  }
+
+  .selector select {
+    font-size: 8px;
+  }
+
+  .filtrar {
+    font-size: 20px;
+  }
+
+  .fa-envelope-open-text {
+    font-size: 20px;
+  }
+
+  .compartirInfo {
+    font-size: 10px;
+  }
+
+  .grafico img {
+    width: 280px;
+    height: 80%;
+  }
+
+  .tabla {
+    font-size: 8px;
+  }
 }

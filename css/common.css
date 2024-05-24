@@ -383,6 +383,16 @@ footer li {
   }
 }
 
+@media screen and (max-width: 535px) {
+  header h1 {
+    font-size: 40px;
+  }
+
+  .fa-coins {
+    font-size: 40px;
+  }
+}
+
 @media screen and (max-width: 500px) {
   footer {
     font-size: 8px;
@@ -404,6 +414,30 @@ footer li {
     min-height: auto;
   }
 
+}
+
+@media screen and (max-width: 450px) {
+  header h1 {
+    font-size: 30px;
+  }
+
+  .fa-coins {
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  header {
+    padding: 25px 40px;
+  }
+
+  header h1 {
+    font-size: 20px;
+  }
+
+  .fa-coins {
+    font-size: 20px;
+  }
 }
 
 @media screen and (max-width: 410px) {

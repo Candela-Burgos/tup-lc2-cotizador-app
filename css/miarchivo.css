@@ -113,3 +113,78 @@ td {
   border-radius: 30px;
   color: #fff;
 }
+
+/*----------------- MEDIA ------------------*/
+
+@media screen and (max-width: 780px) {
+
+  .titulo h1, .fa-print{
+    font-size: 25px;
+  }
+
+  .tabla {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .contenedorTabla {
+    max-height: 500px;
+  }
+
+  .titulo h1, .fa-print{
+    font-size: 20px;
+  }
+
+  .tabla {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .contenedorTabla {
+    max-height: 800px;
+  }
+
+  .titulo h1, .fa-print{
+    font-size: 30px;
+  }
+
+  .tabla {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 545px) {
+  .contenedorTabla {
+    max-height: 500px;
+  }
+
+  .titulo h1, .fa-print{
+    font-size: 25px;
+  }
+
+  .tabla {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .titulo h1, .fa-print{
+    font-size: 20px;
+  }
+
+  .tabla {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 445px) {
+  .titulo h1, .fa-print{
+    font-size: 20px;
+  }
+
+  .tabla {
+    font-size: 8px;
+  }
+}

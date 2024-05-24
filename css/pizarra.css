@@ -251,6 +251,19 @@
   }
 }
 
+@media screen and (max-width: 1245px) {
+  .cajaSuccess {
+    font-size: 12px;
+  }
+  .cajaWarning {
+    font-size: 12px;
+  }
+
+  .cajaError {
+    font-size: 12px;
+  }
+}
+
 @media screen and (max-width: 645px) {
   .pizzarra h1 {
     font-size: 20px;

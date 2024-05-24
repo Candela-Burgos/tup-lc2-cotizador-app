@@ -117,7 +117,7 @@ h1 {
   align-items: center;
 }
 
-.logo img{
+.logo img {
   width: 150px;
 }
 
@@ -193,7 +193,7 @@ h1 {
   .logo img {
     width: 120px;
   }
-  
+
   .sugerencia {
     font-size: 12px;
   }
@@ -205,11 +205,210 @@ h1 {
     flex-direction: column;
   }
 
-  .dato h2{
+  .dato h2 {
     font-size: 18px;
   }
 
-  .dato p{
+  .dato p {
     font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 1390px) {
+  .btns {
+    justify-content: center;
+  }
+
+  .logo img {
+    width: 120px;
+  }
+
+  .dato h2 {
+    font-size: 15px;
+  }
+
+  .dato p {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 1285px) {
+  .logo img {
+    width: 100px;
+  }
+
+  .contenedorCajaDatos {
+    align-items: flex-start;
+  }
+
+  .cajaDatos {
+    height: 90px;
+  }
+
+  .sugerencia {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    height: 100px;
+  }
+
+  .sugerencia p {
+    margin: 5px;
+  }
+}
+
+@media screen and (max-width: 1245px) {
+  .logo img {
+    width: 70px;
+  }
+
+  .cajaSuccess {
+    font-size: 12px;
+  }
+  .cajaWarning {
+    font-size: 12px;
+  }
+
+  .cajaError {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 1185px) {
+  .dato h2 {
+    font-size: 12px;
+  }
+
+  .dato p {
+    font-size: 8px;
+  }
+}
+
+@media screen and (max-width: 920px) {
+  .contenedorContacto h1 {
+    font-size: 25px;
+  }
+
+  .formContacto h2 {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 865px) {
+  .contenedorContacto {
+    grid-template-areas:
+      "h1"
+      "formContacto" 
+      "sugerencia"
+      "cajaDatos";
+  }
+
+  .logo img {
+    width: 100px;
+  }
+
+  .cajaDatos {
+    width: 70%;
+    height: 90px;
+  }
+
+  .dato h2 {
+    font-size: 18px;
+  }
+
+  .dato p {
+    font-size: 12px;
+  }
+
+  .sugerencia {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .sugerencia p {
+    text-align: center;
+    margin: 5px;
+  }
+}
+
+@media screen and (max-width: 770px) {
+  .logo img {
+    width: 90px;
+  }
+
+  .cajaDatos {
+    width: 80%;
+    height: 90px;
+  }
+
+  .dato h2 {
+    font-size: 15px;
+  }
+
+  .dato p {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 645px) {
+  .logo img {
+    width: 80px;
+  }
+
+  .dato h2 {
+    font-size: 12px;
+  }
+
+  .dato p {
+    font-size: 8px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .logo img {
+    width: 100px;
+  }
+
+  .dato h2 {
+    font-size: 18px;
+  }
+
+  .dato p {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 465px) {
+  .contenedorContacto h1 {
+    font-size: 20px;
+  }
+
+  .logo img {
+    width: 90px;
+  }
+
+  .dato h2 {
+    font-size: 15px;
+  }
+
+  .dato p {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 415px) {
+  .logo img {
+    width: 80px;
+  }
+
+  .dato h2 {
+    font-size: 12px;
+  }
+
+  .dato p {
+    font-size: 8px;
   }
 }

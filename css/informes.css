@@ -294,6 +294,19 @@ td {
   }
 }
 
+@media screen and (max-width: 1245px) {
+  .cajaSuccess {
+    font-size: 12px;
+  }
+  .cajaWarning {
+    font-size: 12px;
+  }
+
+  .cajaError {
+    font-size: 12px;
+  }
+}
+
 @media screen and (max-width: 1160px) {
   .selector label {
     font-size: 12px;
@@ -392,6 +405,23 @@ td {
   .tabla {
     font-size: 12px;
   }
+
+  .modalEnviarDatos {
+    max-width: 300px;
+  }
+
+  .modalEnviarDatos h2 {
+    font-size: 18px;
+  }
+
+  .formDatos label {
+    font-size: 13px;
+  }
+
+  .formDatos input {
+    padding: 5px;
+    width: 90%;
+  }
 }
 
 @media screen and (max-width: 650px) {
@@ -458,9 +488,26 @@ td {
   .tabla {
     font-size: 12px;
   }
+  
+  .modalEnviarDatos {
+    max-width: 300px;
+  }
+
+  .modalEnviarDatos h2 {
+    font-size: 15px;
+  }
+
+  .formDatos label {
+    font-size: 12px;
+  }
+
+  .formDatos input {
+    padding: 5px;
+    width: 90%;
+  }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 450px) {
   h1 {
     font-size: 15px;
     margin-bottom: 10px;
@@ -541,5 +588,24 @@ td {
 
   .tabla {
     font-size: 8px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .modalEnviarDatos {
+    max-width: 250px;
+  }
+
+  .modalEnviarDatos h2 {
+    font-size: 15px;
+  }
+
+  .formDatos label {
+    font-size: 12px;
+  }
+
+  .formDatos input {
+    padding: 5px;
+    width: 90%;
   }
 }

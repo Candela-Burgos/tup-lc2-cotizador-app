@@ -285,6 +285,20 @@ footer li {
 
 /*----------------- MEDIA ------------------*/
 
+@media screen and (max-width: 1880px) {
+  .btnCancelar {
+    font-size: 12px;
+  }
+
+  .btnLimpiar {
+    font-size: 12px;
+  }
+
+  .btnEnviar {
+    font-size: 12px;
+  }
+}
+
 @media screen and (max-width: 1320px) {
   footer {
     font-size: 12px;
@@ -380,6 +394,18 @@ footer li {
   footer {
     padding: 10px 10px 5px 10px;
     height: 100px;
+  }
+
+  .btnCancelar {
+    font-size: 10px;
+  }
+
+  .btnLimpiar {
+    font-size: 10px;
+  }
+
+  .btnEnviar {
+    font-size: 10px;
   }
 }
 

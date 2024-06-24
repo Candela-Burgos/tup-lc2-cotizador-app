@@ -81,7 +81,7 @@
   border: 1px solid #dfdfdf;
   border-radius: 25px 50px;
   padding: 20px;
-  height: 70%;
+  height: 60%;
   display: flex;
   flex-flow: column wrap;
 }

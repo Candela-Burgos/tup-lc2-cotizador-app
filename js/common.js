@@ -27,45 +27,63 @@ const procesoIniciado = async() => {
       if (respuestaUSD.ok){
         const dataUSD = await respuestaUSD.json()
         for (let i = 0; i < dataUSD.length; i++) {
-          console.log(dataUSD[i].casa)
           
-          const cotz = 
+          const cotz = document.createElement("div")
+          cotz.classList.add('cotizacion')
+          cotz.innerHTML = 
           `
-          <div class="cotizacion">
-                <div class="moneda">
-                  <p>${dataUSD.casa}</p>
-                  <div class="compraventa">
-                    <div class="compra">
-                      <h5>COMPRA</h5>
-                      <p>${dataUSD.compra}</p>
-                    </div>
-                    <div class="venta">
-                      <h5>VENTA</h5>
-                      <p>${dataUSD.venta}</p>
-                    </div>
-                  </div>
-                </div>
-                <button type="button" class="botonFavorito">
-                  <i class="fa-solid fa-star pintada"></i>
-                </button>
-              </div>
+          <div class="moneda">
+             <p>${dataUSD[i].nombre}</p>
+             <div class="compraventa">
+               <div class="compra">
+                 <h5>COMPRA</h5>
+                 <p>${dataUSD[i].compra}</p>
+               </div>
+               <div class="venta">
+                 <h5>VENTA</h5>
+                 <p>${dataUSD[i].venta}</p>
+               </div>
+             </div>
+           </div>
+           <button type="button" class="botonFavorito">
+             <i class="fa-solid fa-star pintada"></i>
+           </button>
           `
           pizzarra_cotz.appendChild(cotz)
-          
-          console.log(dataUSD[i].venta)
+        
        }
       }
       if (respuestaCotz.ok){
         const dataCotz = await respuestaCotz.json()
         for (let i = 0; i < dataCotz.length; i++) {
-          console.log(dataCotz[i].compra)
-          console.log(dataCotz[i].venta)
+          const cotz = document.createElement("div")
+          cotz.classList.add('cotizacion')
+          cotz.innerHTML = 
+          `
+          <div class="moneda">
+             <p>${dataCotz[i].nombre}</p>
+             <div class="compraventa">
+               <div class="compra">
+                 <h5>COMPRA</h5>
+                 <p>${dataCotz[i].compra}</p>
+               </div>
+               <div class="venta">
+                 <h5>VENTA</h5>
+                 <p>${dataCotz[i].venta}</p>
+               </div>
+             </div>
+           </div>
+           <button type="button" class="botonFavorito">
+             <i class="fa-solid fa-star pintada"></i>
+           </button>
+          `
+          pizzarra_cotz.appendChild(cotz)
        }
       }
 
     }
     catch(error){
-      console.log("Hubo un error.")
+      console.log(error)
     }
 
     

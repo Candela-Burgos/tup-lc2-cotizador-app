@@ -1,79 +1,76 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cotizador</title>
-    <link rel="icon" href="img/favicon.ico" />
-    <link rel="stylesheet" href="css/common.css" />
-    <link rel="stylesheet" href="css/pizarra.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-  </head>
 
-  <body>
-    <header>
-      <h1><i class="fa-solid fa-coins"></i>Cotizador de Monedas</h1>
-    </header>
-    <section class="migas_de_pan">
-      <p><b>Usted esta parado en:</b> Inicio</p>
-    </section>
-    <div class="contenedor">
-      <main>
-        <div class="flexPizarra">
-          <!-- Alertas -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cotizador</title>
+  <link rel="icon" href="img/favicon.ico" />
+  <link rel="stylesheet" href="css/common.css" />
+  <link rel="stylesheet" href="css/pizarra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
 
-          <div class="contenedorSuccess">
-            <div class="cajaSuccess">
-              <p>ÉXITO: La operación ha sido exitosa!</p>
-            </div>
+<body>
+  <header>
+    <h1><i class="fa-solid fa-coins"></i>Cotizador de Monedas</h1>
+  </header>
+  <section class="migas_de_pan">
+    <p><b>Usted esta parado en:</b> Inicio</p>
+  </section>
+  <div class="contenedor">
+    <main>
+      <div class="flexPizarra">
+        <!-- Alertas -->
+
+        <div class="contenedorSuccess">
+          <div class="cajaSuccess">
+            <p>ÉXITO: La operación ha sido exitosa!</p>
           </div>
+        </div>
 
-          <div class="contenedorWarning">
-            <div class="cajaWarning">
-              <p>PELIGRO: La operación ha sido incorrecta.</p>
-            </div>
+        <div class="contenedorWarning">
+          <div class="cajaWarning">
+            <p>PELIGRO: La operación ha sido incorrecta.</p>
           </div>
+        </div>
 
-          <div class="contenedorError">
-            <div class="cajaError">
-              <p>
-                ERROR: Ha ocurrido un error al intentar consultar los datos.
-              </p>
-            </div>
+        <div class="contenedorError">
+          <div class="cajaError">
+            <p>
+              ERROR: Ha ocurrido un error al intentar consultar los datos.
+            </p>
           </div>
+        </div>
 
-          <!-- Alertas -->
-          <div class="pizzarra">
-            <h1>Pizzarra de Cotizaciones</h1>
-            
-              <form class="selector">
-                <label for="selecMoneda">Seleccione una moneda:</label>
-                <div class="contenedorSelectBtn">
-                <select name="selecMoneda" id="selecMoneda">
-                  <option value="todas">Todas</option>
-                  <option value="dolares">USD</option>
-                  <option value="cotizaciones/eur">EURO</option>
-                  <option value="cotizaciones/brl">REAL</option>
-                  <option value="cotizaciones/clp">PESO CHILENO</option>
-                  <option value="cotizaciones/uyu">PESO URUGUAYO</option>
-                </select>
-                <button type="button" class="filtrar" id="filtrarPizarra">
-                  <i class="fa-solid fa-filter"></i>
-                </button>
-              </div>
-              </form>
-            
-            <div class="datosActualizados">
-              <p>Datos actualizados al 15/04/2024 17:30hs</p>
+        <!-- Alertas -->
+        <div class="pizzarra">
+          <h1>Pizzarra de Cotizaciones</h1>
+
+          <form class="selector">
+            <label for="selecMoneda">Seleccione una moneda:</label>
+            <div class="contenedorSelectBtn">
+              <select name="selecMoneda" id="selecMoneda">
+                <option value="todas">Todas</option>
+                <option value="USD">USD</option>
+                <option value="EUR">EURO</option>
+                <option value="BRL">REAL</option>
+                <option value="CLP">PESO CHILENO</option>
+                <option value="UYU">PESO URUGUAYO</option>
+              </select>
+              <button type="button" class="filtrar" id="filtrarPizarra">
+                <i class="fa-solid fa-filter"></i>
+              </button>
             </div>
-            <div id="cotizaciones" class="cotizaciones">
-              <!-- <div class="cotizacion">
+          </form>
+
+          <div class="datosActualizados">
+            <p>Datos actualizados al 15/04/2024 17:30hs</p>
+          </div>
+          <div id="cotizaciones" class="cotizaciones">
+            <!-- <div class="cotizacion">
                 <div class="moneda">
                   <p>OFICIAL</p>
                   <div class="compraventa">
@@ -89,329 +86,127 @@
                 </div>
                 <button type="button" class="botonFavorito">
                   <i class="fa-solid fa-star pintada"></i>
-                </button>
-              </div>
-              <div class="cotizacion">
-                <div class="moneda">
-                  <p>BLUE</p>
-                  <div class="compraventa">
-                    <div class="compra">
-                      <h5>COMPRA</h5>
-                      <p>$890</p>
-                    </div>
-                    <div class="venta">
-                      <h5>VENTA</h5>
-                      <p>$1289</p>
-                    </div>
-                  </div>
-                </div>
-                <button type="button" class="botonFavorito">
-                  <i class="fa-solid fa-star"></i>
-                </button>
-              </div>
-              <div class="cotizacion">
-                <div class="moneda">
-                  <p>TARJETA</p>
-                  <div class="compraventa">
-                    <div class="compra">
-                      <h5>COMPRA</h5>
-                      <p>$890</p>
-                    </div>
-                    <div class="venta">
-                      <h5>VENTA</h5>
-                      <p>$1289</p>
-                    </div>
-                  </div>
-                </div>
-                <button type="button" class="botonFavorito">
-                  <i class="fa-solid fa-star"></i>
-                </button>
-              </div>
-              <div class="cotizacion">
-                <div class="moneda">
-                  <p>MEP</p>
-                  <div class="compraventa">
-                    <div class="compra">
-                      <h5>COMPRA</h5>
-                      <p>$890</p>
-                    </div>
-                    <div class="venta">
-                      <h5>VENTA</h5>
-                      <p>$1289</p>
-                    </div>
-                  </div>
-                </div>
-                <button type="button" class="botonFavorito">
-                  <i class="fa-solid fa-star"></i>
-                </button>
-              </div>
-              <div class="cotizacion">
-                <div class="moneda">
-                  <p>CCL</p>
-                  <div class="compraventa">
-                    <div class="compra">
-                      <h5>COMPRA</h5>
-                      <p>$890</p>
-                    </div>
-                    <div class="venta">
-                      <h5>VENTA</h5>
-                      <p>$1289</p>
-                    </div>
-                  </div>
-                </div>
-                <button type="button" class="botonFavorito">
-                  <i class="fa-solid fa-star"></i>
-                </button>
-              </div>
-              <div class="cotizacion">
-                <div class="moneda">
-                  <p>CRIPTO</p>
-                  <div class="compraventa">
-                    <div class="compra">
-                      <h5>COMPRA</h5>
-                      <p>$890</p>
-                    </div>
-                    <div class="venta">
-                      <h5>VENTA</h5>
-                      <p>$1289</p>
-                    </div>
-                  </div>
-                </div>
-                <button type="button" class="botonFavorito">
-                  <i class="fa-solid fa-star pintada"></i>
-                </button>
-              </div>
-              <div class="cotizacion">
-                <div class="moneda">
-                  <p>MAYORISTA</p>
-                  <div class="compraventa">
-                    <div class="compra">
-                      <h5>COMPRA</h5>
-                      <p>$890</p>
-                    </div>
-                    <div class="venta">
-                      <h5>VENTA</h5>
-                      <p>$1289</p>
-                    </div>
-                  </div>
-                </div>
-                <button type="button" class="botonFavorito">
-                  <i class="fa-solid fa-star"></i>
-                </button>
-              </div>
-              <div class="cotizacion">
-                <div class="moneda">
-                  <p>EURO</p>
-                  <div class="compraventa">
-                    <div class="compra">
-                      <h5>COMPRA</h5>
-                      <p>$890</p>
-                    </div>
-                    <div class="venta">
-                      <h5>VENTA</h5>
-                      <p>$1289</p>
-                    </div>
-                  </div>
-                </div>
-                <button type="button" class="botonFavorito">
-                  <i class="fa-solid fa-star"></i>
-                </button>
-              </div>
-              <div class="cotizacion">
-                <div class="moneda">
-                  <p>REAL BRASILEÑO</p>
-                  <div class="compraventa">
-                    <div class="compra">
-                      <h5>COMPRA</h5>
-                      <p>$890</p>
-                    </div>
-                    <div class="venta">
-                      <h5>VENTA</h5>
-                      <p>$1289</p>
-                    </div>
-                  </div>
-                </div>
-                <button type="button" class="botonFavorito">
-                  <i class="fa-solid fa-star"></i>
-                </button>
-              </div>
-              <div class="cotizacion">
-                <div class="moneda">
-                  <p>PESO CHILENO</p>
-                  <div class="compraventa">
-                    <div class="compra">
-                      <h5>COMPRA</h5>
-                      <p>$890</p>
-                    </div>
-                    <div class="venta">
-                      <h5>VENTA</h5>
-                      <p>$1289</p>
-                    </div>
-                  </div>
-                </div>
-                <button type="button" class="botonFavorito">
-                  <i class="fa-solid fa-star"></i>
-                </button>
-              </div>
-              <div class="cotizacion">
-                <div class="moneda">
-                  <p>PESO URUGUAYO</p>
-                  <div class="compraventa">
-                    <div class="compra">
-                      <h5>COMPRA</h5>
-                      <p>$890</p>
-                    </div>
-                    <div class="venta">
-                      <h5>VENTA</h5>
-                      <p>$1289</p>
-                    </div>
-                  </div>
-                </div>
-                <button type="button" class="botonFavorito">
-                  <i class="fa-solid fa-star"></i>
-                </button>
-              </div> -->
-            </div>
-            <p class="recordatorio">
-              <strong>! </strong>Haga clic en la estrella para guardar los datos
-              de la cotización en sus favoritos
-            </p>
-            <div class="bibliografia">
-              <p>Datos obtenidos de <a href="https://dolarapi.com/">DolarApi.com</a></p>
-            </div>
+                </button> -->
+          </div>
+          <p class="recordatorio">
+            <strong>! </strong>Haga clic en la estrella para guardar los datos
+            de la cotización en sus favoritos
+          </p>
+          <div class="bibliografia">
+            <p>Datos obtenidos de <a href="https://dolarapi.com/">DolarApi.com</a></p>
           </div>
         </div>
-      </main>
-      <section class="side-bar">
-        <div class="side-bar-links">
-          <ul>
-            <li>
-              <a href="index.html"><i class="fa-solid fa-house"></i>Inicio</a>
-            </li>
-            <li>
-              <a href="miarchivo.html"
-                ><i class="fa-solid fa-folder"></i>Mi Archivo</a
-              >
-            </li>
-            <li>
-              <a href="informes.html"
-                ><i class="fa-solid fa-file"></i>Informes</a
-              >
-            </li>
-            <li>
-              <a href="contacto.html"
-                ><i class="fa-solid fa-address-book"></i>Contáctenos</a
-              >
-            </li>
-          </ul>
-        </div>
+      </div>
+    </main>
+    <section class="side-bar">
+      <div class="side-bar-links">
+        <ul>
+          <li>
+            <a href="index.html"><i class="fa-solid fa-house"></i>Inicio</a>
+          </li>
+          <li>
+            <a href="miarchivo.html"><i class="fa-solid fa-folder"></i>Mi Archivo</a>
+          </li>
+          <li>
+            <a href="informes.html"><i class="fa-solid fa-file"></i>Informes</a>
+          </li>
+          <li>
+            <a href="contacto.html"><i class="fa-solid fa-address-book"></i>Contáctenos</a>
+          </li>
+        </ul>
+      </div>
 
-        <div class="comentarios">
-          <div class="comentario">
-            <img
-              src="img/user1.jpg"
-              alt="foto del usuario"
-              class="user-icon"
-            />
-            <div class="texto">
-              <h3>Roger Medina</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
-                in nobis molestias exercitationem?
-              </p>
-            </div>
-          </div>
-          <div class="comentario">
-            <img
-              src="img/user2.jpeg"
-              alt="foto del usuario"
-              class="user-icon"
-            />
-            <div class="texto">
-              <h3>Martina Martis</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
-                in nobis molestias exercitationem?
-              </p>
-            </div>
-          </div>
-          <div class="comentario">
-            <img
-              src="img/user3.jpg"
-              alt="foto del usuario"
-              class="user-icon"
-            />
-            <div class="texto">
-              <h3>Santiago Tell</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
-                in nobis molestias exercitationem?
-              </p>
-            </div>
-          </div>
-          <div class="comentario">
-            <img
-              src="img/user4.jpg"
-              alt="foto del usuario"
-              class="user-icon"
-            />
-            <div class="texto">
-              <h3>Framcisco Giacometti</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
-                in nobis molestias exercitationem?
-              </p>
-            </div>
+      <div class="comentarios">
+        <div class="comentario">
+          <img src="img/user1.jpg" alt="foto del usuario" class="user-icon" />
+          <div class="texto">
+            <h3>Roger Medina</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
+              in nobis molestias exercitationem?
+            </p>
           </div>
         </div>
-      </section>
-    </div>
-    <footer>
-      <section class="institucional">
-        <div>
-          <h3>Institucional</h3>
-          <ul>
-            <li><a class="footer-link" href="#">¿Quienes Somos?</a></li>
-            <li><a class="footer-link" href="#">Socios Estratégicos</a></li>
-            <li><a class="footer-link" href="#">Trabaje con Nosotros</a></li>
-            <li><a class="footer-link" href="#">Ayuda</a></li>
-          </ul>
+        <div class="comentario">
+          <img src="img/user2.jpeg" alt="foto del usuario" class="user-icon" />
+          <div class="texto">
+            <h3>Martina Martis</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
+              in nobis molestias exercitationem?
+            </p>
+          </div>
         </div>
-      </section>
-      <section class="accesos">
-        <div>
-          <h3>Accesos</h3>
-          <ul>
-            <li><a class="footer-link" href="index.html">Inicio</a></li>
-            <li><a class="footer-link" href="miarchivo.html">Mi Archivo</a></li>
-            <li><a class="footer-link" href="informes.html">Informes</a></li>
-            <li><a class="footer-link" href="contacto.html">Contactos</a></li>
-          </ul>
+        <div class="comentario">
+          <img src="img/user3.jpg" alt="foto del usuario" class="user-icon" />
+          <div class="texto">
+            <h3>Santiago Tell</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
+              in nobis molestias exercitationem?
+            </p>
+          </div>
         </div>
-      </section>
-      <section class="contacto">
-        <div>
-          <h3>Contacto</h3>
-          <p>Universidad Tecnológica Nacional</p>
-          <p>ZEBALLOS 1341 - S2000BQA - ROSARIO</p>
-          <p>0341 - 4481871</p>
-          <a href="#" class="link-contacto">¡Escribanos!</a>
+        <div class="comentario">
+          <img src="img/user4.jpg" alt="foto del usuario" class="user-icon" />
+          <div class="texto">
+            <h3>Framcisco Giacometti</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
+              in nobis molestias exercitationem?
+            </p>
+          </div>
         </div>
-      </section>
-      <section class="desarrollado">
-        <div>
-          <h3>Desarrollado por</h3>
-          <p>Martina Cegna (53500)</p>
-          <p>Candela Burgos (53370)</p>
-          <p>Valentín Lanfranco (53498)</p>
-          <p>TUP06 - 2024</p>
-        </div>
-      </section>
-      <p class="tup">
-        TUP - Cátedra de Laboratorio de Computación 2 - Año 2024
-      </p>
-    </footer>
-  </body>
-  <script src="js/common.js"></script>
-  <script src="js/pizarra.js"></script>
+      </div>
+    </section>
+  </div>
+  <footer>
+    <section class="institucional">
+      <div>
+        <h3>Institucional</h3>
+        <ul>
+          <li><a class="footer-link" href="#">¿Quienes Somos?</a></li>
+          <li><a class="footer-link" href="#">Socios Estratégicos</a></li>
+          <li><a class="footer-link" href="#">Trabaje con Nosotros</a></li>
+          <li><a class="footer-link" href="#">Ayuda</a></li>
+        </ul>
+      </div>
+    </section>
+    <section class="accesos">
+      <div>
+        <h3>Accesos</h3>
+        <ul>
+          <li><a class="footer-link" href="index.html">Inicio</a></li>
+          <li><a class="footer-link" href="miarchivo.html">Mi Archivo</a></li>
+          <li><a class="footer-link" href="informes.html">Informes</a></li>
+          <li><a class="footer-link" href="contacto.html">Contactos</a></li>
+        </ul>
+      </div>
+    </section>
+    <section class="contacto">
+      <div>
+        <h3>Contacto</h3>
+        <p>Universidad Tecnológica Nacional</p>
+        <p>ZEBALLOS 1341 - S2000BQA - ROSARIO</p>
+        <p>0341 - 4481871</p>
+        <a href="#" class="link-contacto">¡Escribanos!</a>
+      </div>
+    </section>
+    <section class="desarrollado">
+      <div>
+        <h3>Desarrollado por</h3>
+        <p>Martina Cegna (53500)</p>
+        <p>Candela Burgos (53370)</p>
+        <p>Valentín Lanfranco (53498)</p>
+        <p>TUP06 - 2024</p>
+      </div>
+    </section>
+    <p class="tup">
+      TUP - Cátedra de Laboratorio de Computación 2 - Año 2024
+    </p>
+  </footer>
+</body>
+<script src="js/common.js"></script>
+<script src="js/pizarra.js"></script>
+
 </html>

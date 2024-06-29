@@ -2,16 +2,7 @@
 
 /* https://dolarapi.com/docs/argentina/ */
 
-
-const selector_moneda = document.getElementById("selecMoneda");
-const filtrar_pizarra = document.getElementById("filtrarPizarra");
 const pizzarra_cotz = document.getElementById("cotizaciones");
-const filtroPizarra = () => {
-
-  if (selector_moneda.value == "todas"){
-
-  }
-}
 
 const procesoIniciado = async() => {
 
@@ -30,6 +21,7 @@ const procesoIniciado = async() => {
           
           const cotz = document.createElement("div")
           cotz.classList.add('cotizacion')
+          cotz.setAttribute('data-moneda', 'USD')
           cotz.innerHTML = 
           `
           <div class="moneda">
@@ -46,7 +38,7 @@ const procesoIniciado = async() => {
              </div>
            </div>
            <button type="button" class="botonFavorito">
-             <i class="fa-solid fa-star pintada"></i>
+             <i class="fa-solid fa-star"></i>
            </button>
           `
           pizzarra_cotz.appendChild(cotz)
@@ -58,6 +50,7 @@ const procesoIniciado = async() => {
         for (let i = 0; i < dataCotz.length; i++) {
           const cotz = document.createElement("div")
           cotz.classList.add('cotizacion')
+          cotz.setAttribute('data-moneda', dataCotz[i].moneda)
           cotz.innerHTML = 
           `
           <div class="moneda">
@@ -74,11 +67,13 @@ const procesoIniciado = async() => {
              </div>
            </div>
            <button type="button" class="botonFavorito">
-             <i class="fa-solid fa-star pintada"></i>
+             <i class="fa-solid fa-star"></i>
            </button>
           `
           pizzarra_cotz.appendChild(cotz)
        }
+
+       /* Falta cambiar la fecha en que se actualizan las cotizaciones */
       }
 
     }
@@ -91,73 +86,6 @@ const procesoIniciado = async() => {
 procesoIniciado()
 
 setInterval(function(){
+  pizzarra_cotz.innerHTML=""
   procesoIniciado()
 }, 50000);
-
-
-
-
-
-
-
-// const selector_moneda = document.getElementById("selecMoneda");
-
-// const obtenerYAlmacenarDatosApi = async (url) => {
-//   try {
-//     const respuesta = await fetch(url);
-//     if (!respuesta.ok) {
-//       throw new Error(`Error en la petición: ${respuesta.statusText}`);
-//     }
-//     const datos = await respuesta.json();
-
-//     // Almacenar datos en localStorage con una clave específica
-//     localStorage.setItem('datosMoneda', JSON.stringify(datos));
-//     console.log('Datos almacenados en localStorage:', datos);
-//   } catch (error) {
-//     console.error('Error al obtener datos de la API:', error);
-//   }
-// };
-
-// const iniciarProceso = () => {
-//   const url = `https://dolarapi.com/v1/${selector_moneda.value}`; // URL de la API
-
-//   // Llamar a la función cuando la página se carga
-//   obtenerYAlmacenarDatosApi(url);
-
-//   // Configurar el intervalo para llamar a la función cada 5 minutos
-//   setInterval(() => {
-//     obtenerYAlmacenarDatosApi(url);
-//   }, 300000); // 300,000 milisegundos = 5 minutos
-// };
-
-// // Evento que inicia el proceso cuando el cuerpo de la página se carga
-// document.body.onload = iniciarProceso;
-
-
-
-// const dolarApi = async () => {
-//   try {
-//     const respuesta = await fetch(
-//       `https://dolarapi.com/v1/${selector_moneda.value}`
-//     );
-//     const data = await respuesta.json();
-//     for (const dato in data) {
-//       if (Object.hasOwnProperty.call(data, dato)) {
-//         const element = data[dato];
-//         console.log(element);
-//         /* console.log(element.moneda);
-//         console.log(element.casa);
-//         console.log(element.nombre);
-//         console.log(element.compra);
-//         console.log(element.venta);
-//         console.log(element.fechaActualizacion); */
-//       }
-//     }
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-
-/* dolarApi(); */
-
-//filtrar_pizarra.addEventListener("load", dolarApi);

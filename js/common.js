@@ -12,6 +12,50 @@ const procesoIniciado = async() => {
 
   }
 
+  
+const guardarFavorito = (e) => {
+
+  const iconoEstrella = e.currentTarget.querySelector('.fa-star');
+
+  if(iconoEstrella.classList.contains("pintada")){
+    console.log("Ya se encuentra guardada en favoritos")
+  } else{
+    iconoEstrella.classList.add('pintada');
+
+    const costizacionMasCerca = e.currentTarget.closest('.cotizacion'); 
+    const moneda = costizacionMasCerca.querySelector('.moneda p').textContent; 
+    const compra = costizacionMasCerca.querySelector('.compra p').textContent;
+    const venta = costizacionMasCerca.querySelector('.venta p').textContent;
+    let fecha = new Date();
+    const dia = fecha.getDate();
+    const mes = fecha.getMonth()+1;
+    const año = fecha.getFullYear();
+    fecha = `${dia}/${mes}/${año}`
+    const favoriteData = {
+        moneda,
+        compra,
+        venta,
+        fecha
+    };
+
+    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    favorites.push(favoriteData);
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+
+    alert(`${moneda} guardado como favorito.`);
+
+  }
+  
+};
+
+const addFavoriteListeners = () => {
+  document.querySelectorAll('.botonFavorito').forEach(button => {
+      button.addEventListener('click', guardarFavorito);
+  });
+};
+
+
+
     try {
       const respuestaUSD = await fetch(monedas.USD)
       const respuestaCotz = await fetch(monedas.cotizaciones)
@@ -81,11 +125,14 @@ const procesoIniciado = async() => {
       console.log(error)
     }
 
-    
+    addFavoriteListeners();
 }
+
 procesoIniciado()
 
 setInterval(function(){
   pizzarra_cotz.innerHTML=""
   procesoIniciado()
 }, 50000);
+
+//localStorage.clear()

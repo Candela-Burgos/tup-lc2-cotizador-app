@@ -13,15 +13,17 @@ const filtrar = () => {
 
     if (selectedValue === "todas") {
         document.querySelectorAll('.cotizacion').forEach(function(element) {
-            element.style.display = 'block';
+            element.style.display = 'flex';
         });
     } else {
         document.querySelectorAll(`.cotizacion[data-moneda="${selectedValue}"]`).forEach(function(element) {
-            element.style.display = 'block';
+            element.style.display = 'flex';
         });
 
-}};
+    }
+};
 
+const guardarFavorito = () => {
+    localStorage.setItem("moneda", )
+}
 filtrar_pizarra.addEventListener('click', filtrar);
-
-/*Funciona pero se rompe la tarjeta cotizacion, se va el boton de favorito para abajo*/

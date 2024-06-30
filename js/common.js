@@ -128,32 +128,25 @@ const addFavoriteListeners = () => {
     addFavoriteListeners();
 }
 
+
+const comentarios = document.querySelectorAll(".comentario");
+comentarios.forEach(comentario => comentario.style.display = 'none');
+
 const rotadorComentarios = () =>{
-    const comentarios = document.querySelectorAll(".comentario");
+  let index = 0;
+  comentarios[index].style.display = 'block';
+
+  setInterval(() => {
     comentarios.forEach(comentario => comentario.style.display = 'none');
-      // for (let i = 0; i < comentarios.length; i++) {
-      //   if(i==0){
-      //     comentarios[i].style.display = "block"
-      //   }else{
-      //     comentarios[i-1].style.display = "none"
-      //     comentarios[i].style.display = "block"
-      //   }
-      // }
-      for (let i = 0; i < comentarios.length; i++) {
-        comentarios[i].style.display = "none"
-        setInterval(() => {
-        i+1
-        comentarios[i].style.display = "block"
-        }, 4000);
-      } 
+    comentarios[index].style.display = 'block';
+    index = (index + 1) % comentarios.length;
+  }, 5000);
+
 }
 
 rotadorComentarios()
 procesoIniciado()
 
-setInterval(() => {
-  rotadorComentarios()
-}, 2000);
 
 setInterval(() => {
   pizzarra_cotz.innerHTML=""

@@ -14,10 +14,11 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   </head>
   <body>
     <!-- Modal Datos del destinatario -->
-    <div class="contenedorModal">
+    <div class="contenedorModal" id="contenedorModal">
       <div class="modalEnviarDatos">
         <h2>DATOS DEL DESTINATARIO</h2>
         <form class="formDatos">
@@ -26,8 +27,8 @@
           <label for="email">Email:</label>
           <input type="email" name="email" id="email" />
           <div class="btns">
-            <button class="btnCancelar">Cancelar</button>
-            <button class="btnEnviar">Enviar</button>
+            <button class="btnCancelar" id="btnCancelar">Cancelar</button>
+            <button class="btnEnviar" id="btnEnviar">Enviar</button>
           </div>
         </form>
       </div>
@@ -99,8 +100,7 @@
             <!-- select -->
 
             <div class="compartirInfo">
-              <a href="#compartir-info"
-                ><i class="fa-solid fa-envelope-open-text"></i> Compartir
+              <a href="#compartir-info" id="linkCompartir"><i class="fa-solid fa-envelope-open-text"></i> Compartir
                 Información</a
               >
             </div>
@@ -285,7 +285,7 @@
           <p>Universidad Tecnológica Nacional</p>
           <p>ZEBALLOS 1341 - S2000BQA - ROSARIO</p>
           <p>0341 - 4481871</p>
-          <a href="#" class="link-contacto">¡Escribanos!</a>
+          <a href="contacto.html" class="link-contacto">¡Escribanos!</a>
         </div>
       </section>
       <section class="desarrollado">
@@ -302,4 +302,6 @@
       </p>
     </footer>
   </body>
+  <script src="js/common.js"></script>
+  <script src="js/informes.js"></script>
 </html>

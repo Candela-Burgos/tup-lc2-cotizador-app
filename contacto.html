@@ -30,19 +30,19 @@
       <div class="flexContacto">
         <!-- Alertas -->
 
-        <div class="contenedorSuccess">
+        <div class="contenedorSuccess" id="contenedorSuccess">
           <div class="cajaSuccess">
             <p>ÉXITO: La operación ha sido exitosa!</p>
           </div>
         </div>
 
-        <div class="contenedorWarning">
+        <div class="contenedorWarning" id="contenedorWarning">
           <div class="cajaWarning">
             <p>PELIGRO: La operación ha sido incorrecta.</p>
           </div>
         </div>
 
-        <div class="contenedorError">
+        <div class="contenedorError" id="contenedorError">
           <div class="cajaError">
             <p>
               ERROR: Ha ocurrido un error al intentar consultar los datos.
@@ -61,51 +61,19 @@
                 <label for="from_name">Nombre:</label>
                 <input type="text" name="from_name" id="from_name" />
               </div>
-              <!-- <div class="campoEntrada">
-                <label for="to_name">Destinatario:</label>
-                <input type="text" name="to_name" id="to_name">
-              </div> -->
               <div class="campoEntrada" id="campoNombre">
                 <label for="email_id">Email:</label>
-                <input type="text" name="email_id" id="email_id" />
+                <input type="email" name="email_id" id="email_id" />
               </div>
-
               <div class="campoEntrada" id="campoNombre">
                 <label for="message">Mensaje</label>
-                <!-- <input type="text" name="message" id="message" /> -->
                 <textarea name="message" id="message" maxlength="200"></textarea>
               </div>
-              
-              <!-- <div class="campoEntrada">
-                <label for="reply_to">reply_to</label>
-                <input type="text" name="reply_to" id="reply_to">
-              </div> -->
-              
-              <!-- <input type="submit" id="button" value="Send Email"> -->
             </form>
             <div class="btns">
-              <button class="btnLimpiar">Limpiar</button>
+              <button class="btnLimpiar" id="btnLimpiar">Limpiar</button>
               <button type="submit" id="button" class="btnEnviar">Enviar</button>
             </div>
-            <!-- <form class="formContacto">
-              <h2>DATOS DE CONTACTO</h2>
-              <div class="campoEntrada" id="campoNombre">
-                <label for="nombre">Nombre:</label>
-                <input type="text" name="nombre" id="nombre" />
-              </div>
-              <div class="campoEntrada" id="campoEmail">
-                <label for="email">Email:</label>
-                <input type="text" name="email" id="email" />
-              </div>
-              <div class="campoEntrada" id="campoMensaje">
-                <label for="mensaje">Mensaje:</label>
-                <textarea name="mensaje" id="mensaje" maxlength="200"></textarea>
-              </div>
-            </form>
-            <div class="btns">
-              <button class="btnLimpiar">Limpiar</button>
-              <button class="btnEnviar">Enviar</button>
-            </div> -->
           </div>
           <!-- formulario -->
           <div class="sugerencia">

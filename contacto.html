@@ -1,244 +1,250 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cotizador</title>
-    <link rel="icon" href="img/favicon.ico" />
-    <link rel="stylesheet" href="css/common.css" />
-    <link rel="stylesheet" href="css/contacto.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  </head>
-  <body>
-    <header>
-      <h1><i class="fa-solid fa-coins"></i>Cotizador de Monedas</h1>
-    </header>
-    <section class="migas_de_pan">
-      <p>
-        <b>Usted esta parado en:</b>
-        <a class="volverInicio" href="index.html">Inicio</a> / Contacto
-      </p>
-    </section>
-    <div class="contenedor">
-      <main>
-        <div class="flexContacto">
-          <!-- Alertas -->
 
-          <div class="contenedorSuccess">
-            <div class="cajaSuccess">
-              <p>ÉXITO: La operación ha sido exitosa!</p>
-            </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cotizador</title>
+  <link rel="icon" href="img/favicon.ico" />
+  <link rel="stylesheet" href="css/common.css" />
+  <link rel="stylesheet" href="css/contacto.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="text/javascript">emailjs.init('VAxTKtvHet2gTlzk2')</script>
+</head>
+
+<body>
+  <header>
+    <h1><i class="fa-solid fa-coins"></i>Cotizador de Monedas</h1>
+  </header>
+  <section class="migas_de_pan">
+    <p>
+      <b>Usted esta parado en:</b>
+      <a class="volverInicio" href="index.html">Inicio</a> / Contacto
+    </p>
+  </section>
+  <div class="contenedor">
+    <main>
+      <div class="flexContacto">
+        <!-- Alertas -->
+
+        <div class="contenedorSuccess">
+          <div class="cajaSuccess">
+            <p>ÉXITO: La operación ha sido exitosa!</p>
           </div>
+        </div>
 
-          <div class="contenedorWarning">
-            <div class="cajaWarning">
-              <p>PELIGRO: La operación ha sido incorrecta.</p>
-            </div>
+        <div class="contenedorWarning">
+          <div class="cajaWarning">
+            <p>PELIGRO: La operación ha sido incorrecta.</p>
           </div>
+        </div>
 
-          <div class="contenedorError">
-            <div class="cajaError">
-              <p>
-                ERROR: Ha ocurrido un error al intentar consultar los datos.
-              </p>
-            </div>
+        <div class="contenedorError">
+          <div class="cajaError">
+            <p>
+              ERROR: Ha ocurrido un error al intentar consultar los datos.
+            </p>
           </div>
+        </div>
 
-          <!-- Alertas -->
-          <div class="contenedorContacto">
-            <h1>Contacto Web Cotizaciones</h1>
-            <!-- formulario -->
-            <div class="datosDeContacto">
-              <form class="formContacto">
+        <!-- Alertas -->
+        <div class="contenedorContacto">
+          <h1>Contacto Web Cotizaciones</h1>
+          <!-- formulario -->
+          <div class="datosDeContacto">
+            <form class="formContacto" id="form">
+              <h2>DATOS DE CONTACTO</h2>
+              <div class="campoEntrada" id="campoNombre">
+                <label for="from_name">Nombre:</label>
+                <input type="text" name="from_name" id="from_name" />
+              </div>
+              <!-- <div class="campoEntrada">
+                <label for="to_name">Destinatario:</label>
+                <input type="text" name="to_name" id="to_name">
+              </div> -->
+              <div class="campoEntrada" id="campoNombre">
+                <label for="email_id">Email:</label>
+                <input type="text" name="email_id" id="email_id" />
+              </div>
+
+              <div class="campoEntrada" id="campoNombre">
+                <label for="message">Mensaje</label>
+                <!-- <input type="text" name="message" id="message" /> -->
+                <textarea name="message" id="message" maxlength="200"></textarea>
+              </div>
+              
+              <!-- <div class="campoEntrada">
+                <label for="reply_to">reply_to</label>
+                <input type="text" name="reply_to" id="reply_to">
+              </div> -->
+              
+              <!-- <input type="submit" id="button" value="Send Email"> -->
+            </form>
+            <div class="btns">
+              <button class="btnLimpiar">Limpiar</button>
+              <button type="submit" id="button" class="btnEnviar">Enviar</button>
+            </div>
+            <!-- <form class="formContacto">
+              <h2>DATOS DE CONTACTO</h2>
+              <div class="campoEntrada" id="campoNombre">
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="nombre" id="nombre" />
+              </div>
+              <div class="campoEntrada" id="campoEmail">
+                <label for="email">Email:</label>
+                <input type="text" name="email" id="email" />
+              </div>
+              <div class="campoEntrada" id="campoMensaje">
+                <label for="mensaje">Mensaje:</label>
+                <textarea name="mensaje" id="mensaje" maxlength="200"></textarea>
+              </div>
+            </form>
+            <div class="btns">
+              <button class="btnLimpiar">Limpiar</button>
+              <button class="btnEnviar">Enviar</button>
+            </div> -->
+          </div>
+          <!-- formulario -->
+          <div class="sugerencia">
+            <p>
+              Si tiene alguna sugerencia o inconveniente por favor complete el
+              siguiente formulario y envíenoslo. Lo contactaremos a la
+              brevedad.
+            </p>
+            <p>
+              Esta web esta desarrollada utilizando
+              <a href="https://dolarapi.com/">https://dolarapi.com/</a>
+            </p>
+          </div>
+          <div class="contenedorCajaDatos">
+            <div class="cajaDatos">
+              <div class="dato">
                 <h2>DATOS DE CONTACTO</h2>
-                <div class="campoEntrada" id="campoNombre">
-                  <label for="nombre">Nombre:</label>
-                  <input type="text" name="nombre" id="nombre" />
-                </div>
-                <div class="campoEntrada" id="campoEmail">
-                  <label for="email">Email:</label>
-                  <input type="text" name="email" id="email" />
-                </div>
-                <div class="campoEntrada" id="campoMensaje">
-                  <label for="mensaje">Mensaje:</label>
-                  <textarea
-                    name="mensaje"
-                    id="mensaje"
-                    maxlength="200"
-                  ></textarea>
-                </div>
-              </form>
-              <div class="btns">
-                <button class="btnLimpiar">Limpiar</button>
-                <button class="btnEnviar">Enviar</button>
+                <p>Universidad Tecnológica Nacional</p>
+                <p>ZEBALLOS 1341 - S2000BQA</p>
+                <p>ROSARIO</p>
+                <p>0341 - 4481871</p>
               </div>
-            </div>
-            <!-- formulario -->
-            <div class="sugerencia">
-              <p>
-                Si tiene alguna sugerencia o inconveniente por favor complete el
-                siguiente formulario y envíenoslo. Lo contactaremos a la
-                brevedad.
-              </p>
-              <p>
-                Esta web esta desarrollada utilizando
-                <a href="https://dolarapi.com/">https://dolarapi.com/</a>
-              </p>
-            </div>
-            <div class="contenedorCajaDatos">
-              <div class="cajaDatos">
-                <div class="dato">
-                  <h2>DATOS DE CONTACTO</h2>
-                  <p>Universidad Tecnológica Nacional</p>
-                  <p>ZEBALLOS 1341 - S2000BQA</p>
-                  <p>ROSARIO</p>
-                  <p>0341 - 4481871</p>
-                </div>
-                <div class="logo">
-                  <img src="img/UTN_logo.jpg" alt="logo de la UTN" />
-                </div>
+              <div class="logo">
+                <img src="img/UTN_logo.jpg" alt="logo de la UTN" />
               </div>
             </div>
           </div>
         </div>
-      </main>
-      <section class="side-bar">
-        <div class="side-bar-links">
-          <ul>
-            <li>
-              <a href="index.html"><i class="fa-solid fa-house"></i>Inicio</a>
-            </li>
-            <li>
-              <a href="miarchivo.html"
-                ><i class="fa-solid fa-folder"></i>Mi Archivo</a
-              >
-            </li>
-            <li>
-              <a href="informes.html"
-                ><i class="fa-solid fa-file"></i>Informes</a
-              >
-            </li>
-            <li>
-              <a href="contacto.html"
-                ><i class="fa-solid fa-address-book"></i>Contáctenos</a
-              >
-            </li>
-          </ul>
-        </div>
+      </div>
+    </main>
+    <section class="side-bar">
+      <div class="side-bar-links">
+        <ul>
+          <li>
+            <a href="index.html"><i class="fa-solid fa-house"></i>Inicio</a>
+          </li>
+          <li>
+            <a href="miarchivo.html"><i class="fa-solid fa-folder"></i>Mi Archivo</a>
+          </li>
+          <li>
+            <a href="informes.html"><i class="fa-solid fa-file"></i>Informes</a>
+          </li>
+          <li>
+            <a href="contacto.html"><i class="fa-solid fa-address-book"></i>Contáctenos</a>
+          </li>
+        </ul>
+      </div>
 
-        <div class="comentarios">
-          <div class="comentario">
-            <img
-              src="img/user1.jpg"
-              alt="foto del usuario"
-              class="user-icon"
-            />
-            <div class="texto">
-              <h3>Roger Medina</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
-                in nobis molestias exercitationem?
-              </p>
-            </div>
-          </div>
-          <div class="comentario">
-            <img
-              src="img/user2.jpeg"
-              alt="foto del usuario"
-              class="user-icon"
-            />
-            <div class="texto">
-              <h3>Santiago Tell</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
-                in nobis molestias exercitationem?
-              </p>
-            </div>
-          </div>
-          <div class="comentario">
-            <img
-              src="img/user3.jpg"
-              alt="foto del usuario"
-              class="user-icon"
-            />
-            <div class="texto">
-              <h3>Valerio Grosso</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
-                in nobis molestias exercitationem?
-              </p>
-            </div>
-          </div>
-          <div class="comentario">
-            <img
-              src="img/user4.jpg"
-              alt="foto del usuario"
-              class="user-icon"
-            />
-            <div class="texto">
-              <h3>Framcisco Giacometti</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
-                in nobis molestias exercitationem?
-              </p>
-            </div>
+      <div class="comentarios">
+        <div class="comentario">
+          <img src="img/user1.jpg" alt="foto del usuario" class="user-icon" />
+          <div class="texto">
+            <h3>Roger Medina</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
+              in nobis molestias exercitationem?
+            </p>
           </div>
         </div>
-      </section>
-    </div>
-    <footer>
-      <section class="institucional">
-        <div>
-          <h3>Institucional</h3>
-          <ul>
-            <li><a class="footer-link" href="#">¿Quienes Somos?</a></li>
-            <li><a class="footer-link" href="#">Socios Estratégicos</a></li>
-            <li><a class="footer-link" href="#">Trabaje con Nosotros</a></li>
-            <li><a class="footer-link" href="#">Ayuda</a></li>
-          </ul>
+        <div class="comentario">
+          <img src="img/user2.jpeg" alt="foto del usuario" class="user-icon" />
+          <div class="texto">
+            <h3>Santiago Tell</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
+              in nobis molestias exercitationem?
+            </p>
+          </div>
         </div>
-      </section>
-      <section class="accesos">
-        <div>
-          <h3>Accesos</h3>
-          <ul>
-            <li><a class="footer-link" href="index.html">Inicio</a></li>
-            <li><a class="footer-link" href="miarchivo.html">Mi Archivo</a></li>
-            <li><a class="footer-link" href="informes.html">Informes</a></li>
-            <li><a class="footer-link" href="contacto.html">Contactos</a></li>
-          </ul>
+        <div class="comentario">
+          <img src="img/user3.jpg" alt="foto del usuario" class="user-icon" />
+          <div class="texto">
+            <h3>Valerio Grosso</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
+              in nobis molestias exercitationem?
+            </p>
+          </div>
         </div>
-      </section>
-      <section class="contacto">
-        <div>
-          <h3>Contacto</h3>
-          <p>Universidad Tecnológica Nacional</p>
-          <p>ZEBALLOS 1341 - S2000BQA - ROSARIO</p>
-          <p>0341 - 4481871</p>
-          <a href="contacto.html" class="link-contacto">¡Escribanos!</a>
+        <div class="comentario">
+          <img src="img/user4.jpg" alt="foto del usuario" class="user-icon" />
+          <div class="texto">
+            <h3>Framcisco Giacometti</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
+              in nobis molestias exercitationem?
+            </p>
+          </div>
         </div>
-      </section>
-      <section class="desarrollado">
-        <div>
-          <h3>Desarrollado por</h3>
-          <p>Martina Cegna (53500)</p>
-          <p>Candela Burgos (53370)</p>
-          <p>Valentín Lanfranco (53498)</p>
-          <p>TUP06 - 2024</p>
-        </div>
-      </section>
-      <p class="tup">
-        TUP - Cátedra de Laboratorio de Computación 2 - Año 2024
-      </p>
-    </footer>
-  </body>
-  <script src="js/common.js"></script>
-  <script src="js/contacto.js"></script>
+      </div>
+    </section>
+  </div>
+  <footer>
+    <section class="institucional">
+      <div>
+        <h3>Institucional</h3>
+        <ul>
+          <li><a class="footer-link" href="#">¿Quienes Somos?</a></li>
+          <li><a class="footer-link" href="#">Socios Estratégicos</a></li>
+          <li><a class="footer-link" href="#">Trabaje con Nosotros</a></li>
+          <li><a class="footer-link" href="#">Ayuda</a></li>
+        </ul>
+      </div>
+    </section>
+    <section class="accesos">
+      <div>
+        <h3>Accesos</h3>
+        <ul>
+          <li><a class="footer-link" href="index.html">Inicio</a></li>
+          <li><a class="footer-link" href="miarchivo.html">Mi Archivo</a></li>
+          <li><a class="footer-link" href="informes.html">Informes</a></li>
+          <li><a class="footer-link" href="contacto.html">Contactos</a></li>
+        </ul>
+      </div>
+    </section>
+    <section class="contacto">
+      <div>
+        <h3>Contacto</h3>
+        <p>Universidad Tecnológica Nacional</p>
+        <p>ZEBALLOS 1341 - S2000BQA - ROSARIO</p>
+        <p>0341 - 4481871</p>
+        <a href="contacto.html" class="link-contacto">¡Escribanos!</a>
+      </div>
+    </section>
+    <section class="desarrollado">
+      <div>
+        <h3>Desarrollado por</h3>
+        <p>Martina Cegna (53500)</p>
+        <p>Candela Burgos (53370)</p>
+        <p>Valentín Lanfranco (53498)</p>
+        <p>TUP06 - 2024</p>
+      </div>
+    </section>
+    <p class="tup">
+      TUP - Cátedra de Laboratorio de Computación 2 - Año 2024
+    </p>
+  </footer>
+</body>
+<script src="js/common.js"></script>
+<script src="js/contacto.js"></script>
+
 </html>

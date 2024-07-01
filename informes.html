@@ -1,81 +1,84 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cotizador</title>
-    <link rel="icon" href="img/favicon.ico" />
-    <link rel="stylesheet" href="css/common.css" />
-    <link rel="stylesheet" href="css/informes.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  </head>
-  <body>
-    <!-- Modal Datos del destinatario -->
-    <div class="contenedorModal" id="contenedorModal">
-      <div class="modalEnviarDatos">
-        <h2>DATOS DEL DESTINATARIO</h2>
-        <form class="formDatos">
-          <label for="nombre">Nombre:</label>
-          <input type="text" name="nombre" id="nombre" />
-          <label for="email">Email:</label>
-          <input type="email" name="email" id="email" />
-          <div class="btns">
-            <button class="btnCancelar" id="btnCancelar">Cancelar</button>
-            <button class="btnEnviar" id="btnEnviar">Enviar</button>
-          </div>
-        </form>
-      </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cotizador</title>
+  <link rel="icon" href="img/favicon.ico" />
+  <link rel="stylesheet" href="css/common.css" />
+  <link rel="stylesheet" href="css/informes.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <script type="text/javascript">
+    emailjs.init('VAxTKtvHet2gTlzk2')
+  </script>
+</head>
+
+<body>
+  <!-- Modal Datos del destinatario -->
+  <div class="contenedorModal" id="contenedorModal">
+    <div class="modalEnviarDatos">
+      <h2>DATOS DEL DESTINATARIO</h2>
+      <form class="formDatos">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" id="nombre" />
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" />
+        <div class="btns">
+          <button class="btnCancelar" id="btnCancelar">Cancelar</button>
+          <button class="btnEnviar" id="btnEnviar">Enviar</button>
+        </div>
+      </form>
+      
     </div>
-    <!-- Modal Datos del destinatario -->
-    <header>
-      <h1><i class="fa-solid fa-coins"></i>Cotizador de Monedas</h1>
-    </header>
-    <section class="migas_de_pan">
-      <p>
-        <b>Usted esta parado en:</b>
-        <a class="volverInicio" href="index.html">Inicio</a> / Informes
-      </p>
-    </section>
-    <div class="contenedor">
-      <main>
-        <div class="flexInformes">
-          <!-- Alertas -->
+  </div>
+  <!-- Modal Datos del destinatario -->
+  <header>
+    <h1><i class="fa-solid fa-coins"></i>Cotizador de Monedas</h1>
+  </header>
+  <section class="migas_de_pan">
+    <p>
+      <b>Usted esta parado en:</b>
+      <a class="volverInicio" href="index.html">Inicio</a> / Informes
+    </p>
+  </section>
+  <div class="contenedor">
+    <main>
+      <div class="flexInformes">
+        <!-- Alertas -->
 
-          <div class="contenedorSuccess">
-            <div class="cajaSuccess">
-              <p>ÉXITO: La operación ha sido exitosa!</p>
-            </div>
+        <div class="contenedorSuccess">
+          <div class="cajaSuccess">
+            <p>ÉXITO: La operación ha sido exitosa!</p>
           </div>
+        </div>
 
-          <div class="contenedorWarning">
-            <div class="cajaWarning">
-              <p>PELIGRO: La operación ha sido incorrecta.</p>
-            </div>
+        <div class="contenedorWarning">
+          <div class="cajaWarning">
+            <p>PELIGRO: La operación ha sido incorrecta.</p>
           </div>
+        </div>
 
-          <div class="contenedorError">
-            <div class="cajaError">
-              <p>
-                ERROR: Ha ocurrido un error al intentar consultar los datos.
-              </p>
-            </div>
+        <div class="contenedorError">
+          <div class="cajaError">
+            <p>
+              ERROR: Ha ocurrido un error al intentar consultar los datos.
+            </p>
           </div>
+        </div>
 
-          <!-- Alertas -->
-          <div class="informes">
-            <h1>Informe</h1>
-            <!-- select -->
-            <div class="contenedorSelector">
-              <form class="selector">
-                <label for="selecMoneda">Seleccione una moneda:</label>
-                <div class="contenedorSelectBtn">
+        <!-- Alertas -->
+        <div class="informes">
+          <h1>Informe</h1>
+          <!-- select -->
+          <div class="contenedorSelector">
+            <form class="selector">
+              <label for="selecMoneda">Seleccione una moneda:</label>
+              <div class="contenedorSelectBtn">
                 <select name="selecMoneda" id="selecMoneda">
                   <option value="todas">Todas</option>
                   <option value="dolarOficial">Dólar Oficial</option>
@@ -94,214 +97,189 @@
                   <i class="fa-solid fa-filter"></i>
                 </button>
               </div>
-              </form>
-            </div>
+            </form>
+          </div>
 
-            <!-- select -->
+          <!-- select -->
 
-            <div class="compartirInfo">
-              <a href="#compartir-info" id="linkCompartir"><i class="fa-solid fa-envelope-open-text"></i> Compartir
-                Información</a
-              >
-            </div>
+          <div class="compartirInfo">
+            <a href="#compartir-info" id="linkCompartir"><i class="fa-solid fa-envelope-open-text"></i> Compartir
+              Información</a>
+          </div>
 
-            <!-- imagen de grafico -->
-            <div class="grafico">
-              <img
-                src="img/grafico.jpg" 
-                alt="Imagen de el grafico"
-              />
-            </div>
-            <!-- imagen de grafico -->
-            <div class="contenedorTabla">
-              <table class="tabla">
-                <thead>
-                  <tr>
-                    <th class="tituloTabla">MONEDA</th>
-                    <th class="tituloTabla">FECHA</th>
-                    <th class="tituloTabla">COMPRA</th>
-                    <th class="tituloTabla">VENTA</th>
-                    <th class="tituloTabla">VARIACIÓN</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td rowspan="5">Dólar Blue</td>
-                    <td>15/04/2024</td>
-                    <td>$995</td>
-                    <td>$1015</td>
-                    <td>
-                      <i class="fa-solid fa-arrow-down"></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>14/04/2024</td>
-                    <td>$996.09</td>
-                    <td>$1000.06</td>
-                    <td>
-                      <i class="fa-solid fa-arrow-up"></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>13/04/2024</td>
-                    <td>$1355.2</td>
-                    <td>$1419.2</td>
-                    <td>
-                      <i class="fa-solid fa-arrow-down"></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>12/04/2024</td>
-                    <td>$1050</td>
-                    <td>$1086</td>
-                    <td>
-                      <i class="fa-solid fa-arrow-up"></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>11/04/2024</td>
-                    <td>$1000</td>
-                    <td>$1200</td>
-                    <td>
-                      <i class="fa-solid fa-arrow-up"></i>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+          <!-- imagen de grafico -->
+          <div class="grafico">
+            <img src="img/grafico.jpg" alt="Imagen de el grafico" />
+          </div>
+          <!-- imagen de grafico -->
+          <div class="contenedorTabla">
+            <table class="tabla">
+              <thead>
+                <tr>
+                  <th class="tituloTabla">MONEDA</th>
+                  <th class="tituloTabla">FECHA</th>
+                  <th class="tituloTabla">COMPRA</th>
+                  <th class="tituloTabla">VENTA</th>
+                  <th class="tituloTabla">VARIACIÓN</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td rowspan="5">Dólar Blue</td>
+                  <td>15/04/2024</td>
+                  <td>$995</td>
+                  <td>$1015</td>
+                  <td>
+                    <i class="fa-solid fa-arrow-down"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td>14/04/2024</td>
+                  <td>$996.09</td>
+                  <td>$1000.06</td>
+                  <td>
+                    <i class="fa-solid fa-arrow-up"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td>13/04/2024</td>
+                  <td>$1355.2</td>
+                  <td>$1419.2</td>
+                  <td>
+                    <i class="fa-solid fa-arrow-down"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td>12/04/2024</td>
+                  <td>$1050</td>
+                  <td>$1086</td>
+                  <td>
+                    <i class="fa-solid fa-arrow-up"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td>11/04/2024</td>
+                  <td>$1000</td>
+                  <td>$1200</td>
+                  <td>
+                    <i class="fa-solid fa-arrow-up"></i>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
-      </main>
-      <section class="side-bar">
-        <div class="side-bar-links">
-          <ul>
-            <li>
-              <a href="index.html"><i class="fa-solid fa-house"></i>Inicio</a>
-            </li>
-            <li>
-              <a href="miarchivo.html"
-                ><i class="fa-solid fa-folder"></i>Mi Archivo</a
-              >
-            </li>
-            <li>
-              <a href="informes.html"
-                ><i class="fa-solid fa-file"></i>Informes</a
-              >
-            </li>
-            <li>
-              <a href="contacto.html"
-                ><i class="fa-solid fa-address-book"></i>Contáctenos</a
-              >
-            </li>
-          </ul>
-        </div>
+      </div>
+    </main>
+    <section class="side-bar">
+      <div class="side-bar-links">
+        <ul>
+          <li>
+            <a href="index.html"><i class="fa-solid fa-house"></i>Inicio</a>
+          </li>
+          <li>
+            <a href="miarchivo.html"><i class="fa-solid fa-folder"></i>Mi Archivo</a>
+          </li>
+          <li>
+            <a href="informes.html"><i class="fa-solid fa-file"></i>Informes</a>
+          </li>
+          <li>
+            <a href="contacto.html"><i class="fa-solid fa-address-book"></i>Contáctenos</a>
+          </li>
+        </ul>
+      </div>
 
-        <div class="comentarios">
-          <div class="comentario">
-            <img
-              src="img/user1.jpg"
-              alt="foto del usuario"
-              class="user-icon"
-            />
-            <div class="texto">
-              <h3>Roger Medina</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
-                in nobis molestias exercitationem?
-              </p>
-            </div>
-          </div>
-          <div class="comentario">
-            <img
-              src="img/user2.jpeg"
-              alt="foto del usuario"
-              class="user-icon"
-            />
-            <div class="texto">
-              <h3>Santiago Tell</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
-                in nobis molestias exercitationem?
-              </p>
-            </div>
-          </div>
-          <div class="comentario">
-            <img
-              src="img/user3.jpg"
-              alt="foto del usuario"
-              class="user-icon"
-            />
-            <div class="texto">
-              <h3>Valerio Grosso</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
-                in nobis molestias exercitationem?
-              </p>
-            </div>
-          </div>
-          <div class="comentario">
-            <img
-              src="img/user4.jpg"
-              alt="foto del usuario"
-              class="user-icon"
-            />
-            <div class="texto">
-              <h3>Framcisco Giacometti</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
-                in nobis molestias exercitationem?
-              </p>
-            </div>
+      <div class="comentarios">
+        <div class="comentario">
+          <img src="img/user1.jpg" alt="foto del usuario" class="user-icon" />
+          <div class="texto">
+            <h3>Roger Medina</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
+              in nobis molestias exercitationem?
+            </p>
           </div>
         </div>
-      </section>
-    </div>
-    <footer>
-      <section class="institucional">
-        <div>
-          <h3>Institucional</h3>
-          <ul>
-            <li><a class="footer-link" href="#">¿Quienes Somos?</a></li>
-            <li><a class="footer-link" href="#">Socios Estratégicos</a></li>
-            <li><a class="footer-link" href="#">Trabaje con Nosotros</a></li>
-            <li><a class="footer-link" href="#">Ayuda</a></li>
-          </ul>
+        <div class="comentario">
+          <img src="img/user2.jpeg" alt="foto del usuario" class="user-icon" />
+          <div class="texto">
+            <h3>Santiago Tell</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
+              in nobis molestias exercitationem?
+            </p>
+          </div>
         </div>
-      </section>
-      <section class="accesos">
-        <div>
-          <h3>Accesos</h3>
-          <ul>
-            <li><a class="footer-link" href="index.html">Inicio</a></li>
-            <li><a class="footer-link" href="miarchivo.html">Mi Archivo</a></li>
-            <li><a class="footer-link" href="informes.html">Informes</a></li>
-            <li><a class="footer-link" href="contacto.html">Contactos</a></li>
-          </ul>
+        <div class="comentario">
+          <img src="img/user3.jpg" alt="foto del usuario" class="user-icon" />
+          <div class="texto">
+            <h3>Valerio Grosso</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
+              in nobis molestias exercitationem?
+            </p>
+          </div>
         </div>
-      </section>
-      <section class="contacto">
-        <div>
-          <h3>Contacto</h3>
-          <p>Universidad Tecnológica Nacional</p>
-          <p>ZEBALLOS 1341 - S2000BQA - ROSARIO</p>
-          <p>0341 - 4481871</p>
-          <a href="contacto.html" class="link-contacto">¡Escribanos!</a>
+        <div class="comentario">
+          <img src="img/user4.jpg" alt="foto del usuario" class="user-icon" />
+          <div class="texto">
+            <h3>Framcisco Giacometti</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
+              in nobis molestias exercitationem?
+            </p>
+          </div>
         </div>
-      </section>
-      <section class="desarrollado">
-        <div>
-          <h3>Desarrollado por</h3>
-          <p>Martina Cegna (53500)</p>
-          <p>Candela Burgos (53370)</p>
-          <p>Valentín Lanfranco (53498)</p>
-          <p>TUP06 - 2024</p>
-        </div>
-      </section>
-      <p class="tup">
-        TUP - Cátedra de Laboratorio de Computación 2 - Año 2024
-      </p>
-    </footer>
-  </body>
-  <script src="js/common.js"></script>
-  <script src="js/informes.js"></script>
+      </div>
+    </section>
+  </div>
+  <footer>
+    <section class="institucional">
+      <div>
+        <h3>Institucional</h3>
+        <ul>
+          <li><a class="footer-link" href="#">¿Quienes Somos?</a></li>
+          <li><a class="footer-link" href="#">Socios Estratégicos</a></li>
+          <li><a class="footer-link" href="#">Trabaje con Nosotros</a></li>
+          <li><a class="footer-link" href="#">Ayuda</a></li>
+        </ul>
+      </div>
+    </section>
+    <section class="accesos">
+      <div>
+        <h3>Accesos</h3>
+        <ul>
+          <li><a class="footer-link" href="index.html">Inicio</a></li>
+          <li><a class="footer-link" href="miarchivo.html">Mi Archivo</a></li>
+          <li><a class="footer-link" href="informes.html">Informes</a></li>
+          <li><a class="footer-link" href="contacto.html">Contactos</a></li>
+        </ul>
+      </div>
+    </section>
+    <section class="contacto">
+      <div>
+        <h3>Contacto</h3>
+        <p>Universidad Tecnológica Nacional</p>
+        <p>ZEBALLOS 1341 - S2000BQA - ROSARIO</p>
+        <p>0341 - 4481871</p>
+        <a href="contacto.html" class="link-contacto">¡Escribanos!</a>
+      </div>
+    </section>
+    <section class="desarrollado">
+      <div>
+        <h3>Desarrollado por</h3>
+        <p>Martina Cegna (53500)</p>
+        <p>Candela Burgos (53370)</p>
+        <p>Valentín Lanfranco (53498)</p>
+        <p>TUP06 - 2024</p>
+      </div>
+    </section>
+    <p class="tup">
+      TUP - Cátedra de Laboratorio de Computación 2 - Año 2024
+    </p>
+  </footer>
+</body>
+<script src="js/common.js"></script>
+<script src="js/informes.js"></script>
+
 </html>

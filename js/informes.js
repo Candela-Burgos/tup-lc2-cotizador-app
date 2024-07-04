@@ -72,6 +72,7 @@ btnEnviar.addEventListener("click", function (event) {
 });
 
 /****************************************************************************/
+
 /*Gráfica con varias líneas*/
 //Axis X
 const etiquetas = [

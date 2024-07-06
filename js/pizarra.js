@@ -4,13 +4,42 @@
 
 const pizzarra_cotz = document.getElementById("cotizaciones");
 const fecha_actualizada = document.getElementById("fechaActualizada");
+/* ALERTAS */
+const contenedor_success = document.getElementById("contenedorSuccess");
+const contenedor_warning = document.getElementById("contenedorWarning");
+const contenedor_error = document.getElementById("contenedorError");
+const success_msg = document.getElementById("successMsg");
+const warning_msg = document.getElementById("warningMsg");
+
+const mostrarSuccess = (moneda) => {
+  contenedor_success.style.display = "flex";
+  success_msg.textContent = `ÉXITO: ${moneda} guardado como favorito.`;
+  setTimeout(() => {
+    contenedor_success.style.display = "none";
+  }, 2000);
+};
+
+const mostrarError = () => {
+  contenedor_error.style.display = "flex";
+  setTimeout(() => {
+    contenedor_error.style.display = "none";
+  }, 2000);
+};
+
+const mostrarWarning = () => {
+  contenedor_warning.style.display = "flex";
+  warning_msg.textContent = `PELIGRO: la moneda que desea guardar ya se encuentra en su lista.`;
+  setTimeout(() => {
+    contenedor_warning.style.display = "none";
+  }, 2000);
+};
+/* ALERTAS */
 
 let fechaActual = new Date();
 const diaActual = fechaActual.getDate();
 const mesActual = fechaActual.getMonth() + 1;
 const añoActual = fechaActual.getFullYear();
 fechaActual = `${diaActual}/${mesActual}/${añoActual}`;
-console.log(fechaActual);
 
 const procesoIniciado = async () => {
   const monedas = {
@@ -21,7 +50,7 @@ const procesoIniciado = async () => {
   const guardarFavorito = (e) => {
     const iconoEstrella = e.currentTarget.querySelector(".fa-star");
     if (iconoEstrella.classList.contains("pintada")) {
-      console.log("Ya se encuentra guardada en favoritos");
+      mostrarWarning();
     } else {
       iconoEstrella.classList.add("pintada");
 
@@ -44,8 +73,7 @@ const procesoIniciado = async () => {
       let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
       favorites.push(favoriteData);
       localStorage.setItem("favorites", JSON.stringify(favorites));
-
-      alert(`${moneda} guardado como favorito.`);
+      mostrarSuccess(moneda);
     }
   };
 
@@ -59,7 +87,17 @@ const procesoIniciado = async () => {
     const respuestaUSD = await fetch(monedas.USD);
     const respuestaCotz = await fetch(monedas.cotizaciones);
 
-    let arrayFav = JSON.parse(localStorage.favorites);
+    let arrayFav;
+    try {
+      // Intenta parsear el string JSON almacenado en localStorage
+      arrayFav = JSON.parse(localStorage.getItem("favorites")) || [];
+    } catch (error) {
+      // Si ocurre un error (por ejemplo, si el JSON no es válido), se maneja aquí
+      console.log("Error parsing localStorage data:", error);
+      arrayFav = [];
+    }
+    console.log(arrayFav);
+    /* let arrayFav = JSON.parse(localStorage.favorites); */
     let monedasFav = [];
     for (let i = 0; i < arrayFav.length; i++) {
       monedasFav.push(arrayFav[i].moneda);
@@ -77,8 +115,6 @@ const procesoIniciado = async () => {
         cotz.classList.add("cotizacion");
         cotz.setAttribute("data-moneda", "USD");
         const pintadaUSD = () => {
-          console.log(monedasFav.includes(dataUSD[i].nombre));
-          console.log(fechasFav);
           if (
             monedasFav.includes(dataUSD[i].nombre) &&
             fechasFav.includes(fechaActual)
@@ -155,6 +191,7 @@ const procesoIniciado = async () => {
       /* Falta cambiar la fecha en que se actualizan las cotizaciones */
     }
   } catch (error) {
+    mostrarError();
     console.log(error);
   }
 

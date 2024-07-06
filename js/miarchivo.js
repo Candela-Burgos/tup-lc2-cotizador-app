@@ -3,6 +3,7 @@ function cargarTabla() {
   const tablaBody = document.getElementById("tabla-body");
   tablaBody.innerHTML = ""; // Limpiar la tabla
   const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+  console.log(favorites);
 
   let fechaActual = "";
   favorites.forEach((dato, index) => {

@@ -22,7 +22,7 @@ body {
 
 header {
   padding: 40px;
-  background-image: url(/img/Nimagen-header.jpg);
+  background-image: url(../img/Nimagen-header.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 10px;

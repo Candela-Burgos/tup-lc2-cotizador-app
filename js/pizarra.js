@@ -5,6 +5,13 @@
 const pizzarra_cotz = document.getElementById("cotizaciones");
 const fecha_actualizada = document.getElementById("fechaActualizada");
 
+let fechaActual = new Date();
+const diaActual = fechaActual.getDate();
+const mesActual = fechaActual.getMonth() + 1;
+const añoActual = fechaActual.getFullYear();
+fechaActual = `${diaActual}/${mesActual}/${añoActual}`;
+console.log(fechaActual);
+
 const procesoIniciado = async () => {
   const monedas = {
     USD: "https://dolarapi.com/v1/dolares",
@@ -13,7 +20,6 @@ const procesoIniciado = async () => {
 
   const guardarFavorito = (e) => {
     const iconoEstrella = e.currentTarget.querySelector(".fa-star");
-
     if (iconoEstrella.classList.contains("pintada")) {
       console.log("Ya se encuentra guardada en favoritos");
     } else {
@@ -58,6 +64,10 @@ const procesoIniciado = async () => {
     for (let i = 0; i < arrayFav.length; i++) {
       monedasFav.push(arrayFav[i].moneda);
     }
+    let fechasFav = [];
+    for (let i = 0; i < arrayFav.length; i++) {
+      fechasFav.push(arrayFav[i].fecha);
+    }
 
     if (respuestaUSD.ok) {
       const dataUSD = await respuestaUSD.json();
@@ -67,7 +77,12 @@ const procesoIniciado = async () => {
         cotz.classList.add("cotizacion");
         cotz.setAttribute("data-moneda", "USD");
         const pintadaUSD = () => {
-          if (monedasFav.includes(dataUSD[i].nombre)) {
+          console.log(monedasFav.includes(dataUSD[i].nombre));
+          console.log(fechasFav);
+          if (
+            monedasFav.includes(dataUSD[i].nombre) &&
+            fechasFav.includes(fechaActual)
+          ) {
             return `<i class="fa-solid fa-star pintada"></i>`;
           } else {
             return ` <i class="fa-solid fa-star"></i>`;
@@ -104,7 +119,10 @@ const procesoIniciado = async () => {
         cotz.classList.add("cotizacion");
         cotz.setAttribute("data-moneda", dataCotz[i].moneda);
         const pintadaCotz = () => {
-          if (monedasFav.includes(dataCotz[i].nombre)) {
+          if (
+            monedasFav.includes(dataCotz[i].nombre) &&
+            fechasFav.includes(fechaActual)
+          ) {
             return `<i class="fa-solid fa-star pintada"></i>`;
           } else {
             return ` <i class="fa-solid fa-star"></i>`;

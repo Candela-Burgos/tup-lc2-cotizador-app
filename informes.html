@@ -92,22 +92,22 @@
                 <div class="contenedorSelectBtn">
                   <select name="selecMoneda" id="selecMoneda">
                     <option value="todas">Todas</option>
-                    <option value="dolarOficial">Dólar Oficial</option>
-                    <option value="dolarBlue">Dólar Blue</option>
-                    <option value="dolarMEP">Dólar Bolsa(MEP)</option>
-                    <option value="dolarCCL">
+                    <option value="Oficial">Dólar Oficial</option>
+                    <option value="Blue">Dólar Blue</option>
+                    <option value="Bolsa">Dólar Bolsa(MEP)</option>
+                    <option value="Contado con liquidación">
                       Dólar Contado con Liqui(CCL)
                     </option>
-                    <option value="dolarTarjeta">Dólar Tarjeta</option>
-                    <option value="dolarMayorista">Dólar Mayorista</option>
-                    <option value="dolarCripto">Dólar Cripto</option>
-                    <option value="euro">Euro</option>
-                    <option value="realBrasil">Real Brasileño</option>
-                    <option value="pesoChileno">Peso Chileno</option>
-                    <option value="pesoUruguayo">Peso Uruguayo</option>
+                    <option value="Tarjeta">Dólar Tarjeta</option>
+                    <option value="Mayorista">Dólar Mayorista</option>
+                    <option value="Cripto">Dólar Cripto</option>
+                    <option value="Euro">Euro</option>
+                    <option value="Real Brasileño">Real Brasileño</option>
+                    <option value="Peso Chileno">Peso Chileno</option>
+                    <option value="Peso Uruguayo">Peso Uruguayo</option>
                   </select>
                   <button type="button" class="filtrar">
-                    <i class="fa-solid fa-filter"></i>
+                    <i class="fa-solid fa-filter" id="filtrarInforme"></i>
                   </button>
                 </div>
               </form>
@@ -127,6 +127,7 @@
               <canvas id="miGrafica"></canvas>
             </div>
             <!-- imagen de grafico -->
+             <!-- ---- -->
             <div class="contenedorTabla">
               <table class="tabla">
                 <thead>
@@ -138,51 +139,11 @@
                     <th class="tituloTabla">VARIACIÓN</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <td rowspan="5">Dólar Blue</td>
-                    <td>15/04/2024</td>
-                    <td>$995</td>
-                    <td>$1015</td>
-                    <td>
-                      <i class="fa-solid fa-arrow-down"></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>14/04/2024</td>
-                    <td>$996.09</td>
-                    <td>$1000.06</td>
-                    <td>
-                      <i class="fa-solid fa-arrow-up"></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>13/04/2024</td>
-                    <td>$1355.2</td>
-                    <td>$1419.2</td>
-                    <td>
-                      <i class="fa-solid fa-arrow-down"></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>12/04/2024</td>
-                    <td>$1050</td>
-                    <td>$1086</td>
-                    <td>
-                      <i class="fa-solid fa-arrow-up"></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>11/04/2024</td>
-                    <td>$1000</td>
-                    <td>$1200</td>
-                    <td>
-                      <i class="fa-solid fa-arrow-up"></i>
-                    </td>
-                  </tr>
+                <tbody id="tabla-body">
                 </tbody>
               </table>
             </div>
+            <!-- ---- -->
           </div>
         </div>
       </main>

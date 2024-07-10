@@ -62,12 +62,15 @@ const procesoIniciado = async () => {
       const dia = fecha.getDate();
       const mes = fecha.getMonth() + 1;
       const año = fecha.getFullYear();
+      const mesEtiquetas = fecha.getMonth();
       fecha = `${dia}/${mes}/${año}`;
+
       const favoriteData = {
         moneda,
         compra,
         venta,
         fecha,
+        mesEtiquetas,
       };
 
       let favorites = JSON.parse(localStorage.getItem("favorites")) || [];

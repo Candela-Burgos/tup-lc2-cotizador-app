@@ -72,6 +72,162 @@ btnEnviar.addEventListener("click", function (event) {
 });
 
 /****************************************************************************/
+const tablaBody = document.getElementById("tabla-body");
+/* Traemos los datos de monedas favoritas */
+let monedasFav = JSON.parse(localStorage.getItem("favorites")) || [];
+/* console.log(monedasFav); */
+const monedaFavSelec = [];
+/* Select moneda */
+const selector_moneda = document.getElementById("selecMoneda");
+const filtrar_informe = document.getElementById("filtrarInforme");
+
+const filtrar = () => {
+  const monedaSelec = selector_moneda.value;
+  console.log(monedaSelec);
+
+  if (monedaSelec == "todas") {
+    agregarTodasTabla(monedasFav);
+    console.log(monedasFav);
+  } else {
+    monedasFav.forEach((dato) => {
+      /* console.log(dato.moneda, "= moneda favorita"); */
+      if (dato.moneda == monedaSelec) {
+        console.log("las monedas son IGUALES");
+        const datos = {
+          moneda: dato.moneda,
+          fecha: dato.fecha,
+          compra: dato.compra,
+          venta: dato.venta,
+          variacion: "variacion",
+        };
+        monedaFavSelec.push(datos);
+        /* console.log(monedaFavSelec); */
+      }
+    });
+    if (monedaFavSelec.length > 0) {
+      agregarMonedaTabla(monedaFavSelec);
+    } else {
+      tablaBody.innerHTML = `
+    <tr>
+      <td colspan="5" >
+        No existe la moneda seleccionada en su lista.
+      </td>
+    </tr>
+                  `;
+      mostrarError();
+    }
+  }
+};
+
+filtrar_informe.addEventListener("click", () => {
+  tablaBody.innerHTML = "";
+  monedaFavSelec.length = 0;
+  filtrar();
+});
+/* ---- */
+const agregarTodasTabla = (monedas) => {
+  console.log("ENTRO A LA FUNCION");
+  console.log(monedas);
+  monedas.forEach((dato) => {
+    const fila = document.createElement("tr");
+
+    console.log(dato);
+    const monedaCell = document.createElement("td");
+    const fechaCell = document.createElement("td");
+    const compraCell = document.createElement("td");
+    const ventaCell = document.createElement("td");
+    const variacionCell = document.createElement("td");
+
+    monedaCell.textContent = dato.moneda;
+    fechaCell.textContent = dato.fecha;
+    compraCell.textContent = dato.compra;
+    ventaCell.textContent = dato.venta;
+    variacionCell.textContent = "variacion";
+
+    fila.appendChild(monedaCell);
+    fila.appendChild(fechaCell);
+    fila.appendChild(compraCell);
+    fila.appendChild(ventaCell);
+    fila.appendChild(variacionCell);
+    tablaBody.appendChild(fila);
+  });
+};
+
+const agregarMonedaTabla = (monedas) => {
+  const monedaCell = document.createElement("td");
+  monedaCell.rowSpan = monedas.length;
+  monedaCell.textContent = monedas[0].moneda;
+
+  monedas.forEach((dato, index) => {
+    const fila = document.createElement("tr");
+    if (index === 0) {
+      fila.appendChild(monedaCell);
+    }
+    const fechaCell = document.createElement("td");
+    const compraCell = document.createElement("td");
+    const ventaCell = document.createElement("td");
+    const variacionCell = document.createElement("td");
+
+    fechaCell.textContent = dato.fecha;
+    compraCell.textContent = dato.compra;
+    ventaCell.textContent = dato.venta;
+    variacionCell.textContent = "variacion";
+
+    fila.appendChild(fechaCell);
+    fila.appendChild(compraCell);
+    fila.appendChild(ventaCell);
+    fila.appendChild(variacionCell);
+    tablaBody.appendChild(fila);
+  });
+};
+
+/* 
+
+                <tbody>
+                  <tr>
+                    <td rowspan="5">Dólar Blue</td>
+                    <td>15/04/2024</td>
+                    <td>$995</td>
+                    <td>$1015</td>
+                    <td>
+                      <i class="fa-solid fa-arrow-down"></i>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>14/04/2024</td>
+                    <td>$996.09</td>
+                    <td>$1000.06</td>
+                    <td>
+                      <i class="fa-solid fa-arrow-up"></i>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>13/04/2024</td>
+                    <td>$1355.2</td>
+                    <td>$1419.2</td>
+                    <td>
+                      <i class="fa-solid fa-arrow-down"></i>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>12/04/2024</td>
+                    <td>$1050</td>
+                    <td>$1086</td>
+                    <td>
+                      <i class="fa-solid fa-arrow-up"></i>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>11/04/2024</td>
+                    <td>$1000</td>
+                    <td>$1200</td>
+                    <td>
+                      <i class="fa-solid fa-arrow-up"></i>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+*/
 
 /*Gráfica con varias líneas*/
 //Axis X
@@ -80,14 +236,18 @@ const etiquetas = [
   "Febrero",
   "Marzo",
   "Abril",
-  "Abril",
   "Mayo",
-  "junio",
+  "Junio",
+  "Julio",
+  "Agosto",
+  "Septiembre",
+  "Octubre",
+  "Noviembre",
+  "Diciembre",
 ];
 //Datos
-const datosLinea1 = [100, 150, 120, 200, 10, 20, 100];
-const datosLinea2 = [80, 120, 140, 180, 0, 50, 56];
-const datosLinea3 = [88, 100, 14, 200, 20, 0, 80];
+const compra = [100, 150, 120, 200, 10, 20, 100, 100, 150, 120, 200, 10];
+const venta = [80, 120, 140, 180, 0, 50, 56, 140, 180, 0, 50, 56];
 const ctx = document.getElementById("miGrafica").getContext("2d");
 new Chart(ctx, {
   type: "line",
@@ -98,13 +258,13 @@ new Chart(ctx, {
       {
         //Ejemplo de gráfica con relleno
         label: "Dolar Blue",
-        data: datosLinea1,
+        data: compra,
         borderColor: "rgba(54, 162, 235, 1)",
         backgroundColor: "rgba(54, 162, 235, 0.2)", // Color de fondo
         borderWidth: 1,
         fill: true,
       },
-      {
+      /* {
         label: "Dolar Oficial",
         data: datosLinea2,
         borderColor: "green",
@@ -116,7 +276,7 @@ new Chart(ctx, {
         data: datosLinea3,
         borderColor: "red",
         fill: false,
-      },
+      }, */
     ],
   },
 });

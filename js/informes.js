@@ -107,13 +107,12 @@ const filtrar = () => {
     if (monedaFavSelec.length > 0) {
       agregarMonedaTabla(monedaFavSelec);
     } else {
-      tablaBody.innerHTML = `
-    <tr>
-      <td colspan="5" >
-        No existe la moneda seleccionada en su lista.
-      </td>
-    </tr>
-                  `;
+      tablaBody.innerHTML =
+        `<tr>
+          <td colspan="5" >
+            No existe la moneda seleccionada en su lista.
+          </td>
+        </tr>`;
       mostrarError();
     }
   }
@@ -125,31 +124,48 @@ filtrar_informe.addEventListener("click", () => {
   filtrar();
 });
 /* ---- */
+
 const agregarTodasTabla = (monedas) => {
-  console.log("ENTRO A LA FUNCION");
-  console.log(monedas);
-  monedas.forEach((dato) => {
-    const fila = document.createElement("tr");
+  // Agrupar monedas por tipo
+  const monedasAgrupadas = monedas.reduce((acc, dato) => {
+    if (!acc[dato.moneda]) {
+      acc[dato.moneda] = [];
+    }
+    acc[dato.moneda].push(dato);
+    return acc;
+  }, {});
 
-    console.log(dato);
-    const monedaCell = document.createElement("td");
-    const fechaCell = document.createElement("td");
-    const compraCell = document.createElement("td");
-    const ventaCell = document.createElement("td");
-    const variacionCell = document.createElement("td");
+  // Agregar filas a la tabla
+  Object.keys(monedasAgrupadas).forEach(moneda => {
+    const filasMoneda = monedasAgrupadas[moneda];
+    const rowSpan = filasMoneda.length;
 
-    monedaCell.textContent = dato.moneda;
-    fechaCell.textContent = dato.fecha;
-    compraCell.textContent = dato.compra;
-    ventaCell.textContent = dato.venta;
-    variacionCell.textContent = "variacion";
+    filasMoneda.forEach((dato, index) => {
+      const fila = document.createElement("tr");
 
-    fila.appendChild(monedaCell);
-    fila.appendChild(fechaCell);
-    fila.appendChild(compraCell);
-    fila.appendChild(ventaCell);
-    fila.appendChild(variacionCell);
-    tablaBody.appendChild(fila);
+      if (index === 0) {
+        const monedaCell = document.createElement("td");
+        monedaCell.textContent = dato.moneda;
+        monedaCell.rowSpan = rowSpan;
+        fila.appendChild(monedaCell);
+      }
+
+      const fechaCell = document.createElement("td");
+      const compraCell = document.createElement("td");
+      const ventaCell = document.createElement("td");
+      const variacionCell = document.createElement("td");
+
+      fechaCell.textContent = dato.fecha;
+      compraCell.textContent = dato.compra;
+      ventaCell.textContent = dato.venta;
+      variacionCell.textContent = "variacion";
+
+      fila.appendChild(fechaCell);
+      fila.appendChild(compraCell);
+      fila.appendChild(ventaCell);
+      fila.appendChild(variacionCell);
+      tablaBody.appendChild(fila);
+    });
   });
 };
 
@@ -181,56 +197,27 @@ const agregarMonedaTabla = (monedas) => {
   });
 };
 
-/* 
-
-                <tbody>
-                  <tr>
-                    <td rowspan="5">Dólar Blue</td>
-                    <td>15/04/2024</td>
-                    <td>$995</td>
-                    <td>$1015</td>
-                    <td>
-                      <i class="fa-solid fa-arrow-down"></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>14/04/2024</td>
-                    <td>$996.09</td>
-                    <td>$1000.06</td>
-                    <td>
-                      <i class="fa-solid fa-arrow-up"></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>13/04/2024</td>
-                    <td>$1355.2</td>
-                    <td>$1419.2</td>
-                    <td>
-                      <i class="fa-solid fa-arrow-down"></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>12/04/2024</td>
-                    <td>$1050</td>
-                    <td>$1086</td>
-                    <td>
-                      <i class="fa-solid fa-arrow-up"></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>11/04/2024</td>
-                    <td>$1000</td>
-                    <td>$1200</td>
-                    <td>
-                      <i class="fa-solid fa-arrow-up"></i>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-*/
-
 /*Gráfica con varias líneas*/
 //Axis X
+
+function graficoCompraVenta() {
+  const etiquetas = [];
+  let compra = [];
+  let venta
+  const ctx = document.getElementById("miGrafica").getContext("2d");
+  new Chart(ctx, {
+    type: "line",
+    data: {
+      labels: etiquetas,
+      datasets: [{
+        label: "Ventas por mes",
+        data: datos,
+        borderColor: "blue",
+        fill: false
+      }]
+    }
+  });
+}
 const etiquetas = [
   "Enero",
   "Febrero",
@@ -280,3 +267,7 @@ new Chart(ctx, {
     ],
   },
 });
+
+window.onload = () => {
+  agregarTodasTabla(monedasFav);
+};

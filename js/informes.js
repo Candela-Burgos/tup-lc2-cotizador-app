@@ -75,24 +75,54 @@ btnEnviar.addEventListener("click", function (event) {
 const tablaBody = document.getElementById("tabla-body");
 /* Traemos los datos de monedas favoritas */
 let monedasFav = JSON.parse(localStorage.getItem("favorites")) || [];
-/* console.log(monedasFav); */
 const monedaFavSelec = [];
 /* Select moneda */
 const selector_moneda = document.getElementById("selecMoneda");
 const filtrar_informe = document.getElementById("filtrarInforme");
+const monedaSeleccionada = document.getElementById("selecMoneda").value;
+
+function graficoCompraVenta(monedaSeleccionada) {
+  const monedaSeleccionadaData = monedasFav.filter(moneda => moneda.moneda === monedaSeleccionada);
+
+  const etiquetas = monedaSeleccionadaData.map(data => data.fecha);
+  const compra = monedaSeleccionadaData.map(data => data.compra);
+  const venta = monedaSeleccionadaData.map(data => data.venta);
+
+  const ctx = document.getElementById("miGrafica").getContext("2d");
+  new Chart(ctx, {
+    type: "line",
+    data: {
+      labels: etiquetas,
+      datasets: [
+        {
+          label: `Compra ${monedaSeleccionada}`,
+          data: compra,
+          borderColor: "blue",
+          fill: false,
+        },
+        {
+          label: `Venta ${monedaSeleccionada}`,
+          data: venta,
+          borderColor: "red",
+          fill: false,
+        }
+      ]
+    },
+  });
+}
 
 const filtrar = () => {
   const monedaSelec = selector_moneda.value;
-  console.log(monedaSelec);
+  monedaFavSelec.length = 0; // Limpiar monedaFavSelec antes de llenarlo nuevamente
 
-  if (monedaSelec == "todas") {
+  if (monedaSelec === "todas") {
     agregarTodasTabla(monedasFav);
-    console.log(monedasFav);
+    graficoCompraVentaTodas();
   } else {
+    graficoCompraVenta(monedaSelec); // Llamar graficoCompraVenta con la moneda seleccionada
     monedasFav.forEach((dato) => {
-      /* console.log(dato.moneda, "= moneda favorita"); */
-      if (dato.moneda == monedaSelec) {
-        console.log("las monedas son IGUALES");
+      if (dato.moneda === monedaSelec) {
+        console.log("Las monedas son IGUALES");
         const datos = {
           moneda: dato.moneda,
           fecha: dato.fecha,
@@ -101,9 +131,9 @@ const filtrar = () => {
           variacion: "variacion",
         };
         monedaFavSelec.push(datos);
-        /* console.log(monedaFavSelec); */
       }
     });
+
     if (monedaFavSelec.length > 0) {
       agregarMonedaTabla(monedaFavSelec);
     } else {
@@ -120,7 +150,6 @@ const filtrar = () => {
 
 filtrar_informe.addEventListener("click", () => {
   tablaBody.innerHTML = "";
-  monedaFavSelec.length = 0;
   filtrar();
 });
 /* ---- */
@@ -200,74 +229,63 @@ const agregarMonedaTabla = (monedas) => {
 /*Gráfica con varias líneas*/
 //Axis X
 
-function graficoCompraVenta() {
+
+
+function graficoCompraVentaTodas() {
   const etiquetas = [];
-  let compra = [];
-  let venta
+  const datasets = [];
+
+  // Crear un objeto para almacenar los datos de cada moneda por fecha
+  const datosPorMoneda = {};
+
+  monedasFav.forEach(moneda => {
+    if (!etiquetas.includes(moneda.fecha)) {
+      etiquetas.push(moneda.fecha);
+    }
+
+    if (!datosPorMoneda[moneda.moneda]) {
+      datosPorMoneda[moneda.moneda] = { compra: [], venta: [] };
+    }
+
+    datosPorMoneda[moneda.moneda].compra.push(moneda.compra);
+    datosPorMoneda[moneda.moneda].venta.push(moneda.venta);
+  });
+
+  Object.keys(datosPorMoneda).forEach((moneda, index) => {
+    datasets.push({
+      label: `Compra ${moneda}`,
+      data: datosPorMoneda[moneda].compra,
+      borderColor: `rgba(${54 + index * 30}, 162, 235, 1)`,
+      backgroundColor: `rgba(${54 + index * 30}, 162, 235, 0.2)`,
+      borderWidth: 1,
+      fill: false,
+    });
+
+    datasets.push({
+      label: `Venta ${moneda}`,
+      data: datosPorMoneda[moneda].venta,
+      borderColor: `rgba(${235 - index * 30}, 54, 54, 1)`,
+      backgroundColor: `rgba(${235 - index * 30}, 54, 54, 0.2)`,
+      borderWidth: 1,
+      fill: false,
+    });
+  });
+
+  console.log(etiquetas);
+  console.log(datasets);
+
   const ctx = document.getElementById("miGrafica").getContext("2d");
   new Chart(ctx, {
     type: "line",
     data: {
       labels: etiquetas,
-      datasets: [{
-        label: "Ventas por mes",
-        data: datos,
-        borderColor: "blue",
-        fill: false
-      }]
-    }
+      datasets: datasets,
+    },
   });
 }
-const etiquetas = [
-  "Enero",
-  "Febrero",
-  "Marzo",
-  "Abril",
-  "Mayo",
-  "Junio",
-  "Julio",
-  "Agosto",
-  "Septiembre",
-  "Octubre",
-  "Noviembre",
-  "Diciembre",
-];
-//Datos
-const compra = [100, 150, 120, 200, 10, 20, 100, 100, 150, 120, 200, 10];
-const venta = [80, 120, 140, 180, 0, 50, 56, 140, 180, 0, 50, 56];
-const ctx = document.getElementById("miGrafica").getContext("2d");
-new Chart(ctx, {
-  type: "line",
-  data: {
-    labels: etiquetas,
-    datasets: [
-      //Porción de código que se repite por cada ítem que se requiere dibujar
-      {
-        //Ejemplo de gráfica con relleno
-        label: "Dolar Blue",
-        data: compra,
-        borderColor: "rgba(54, 162, 235, 1)",
-        backgroundColor: "rgba(54, 162, 235, 0.2)", // Color de fondo
-        borderWidth: 1,
-        fill: true,
-      },
-      /* {
-        label: "Dolar Oficial",
-        data: datosLinea2,
-        borderColor: "green",
-        borderWidth: 1,
-        fill: false,
-      },
-      {
-        label: "Euro",
-        data: datosLinea3,
-        borderColor: "red",
-        fill: false,
-      }, */
-    ],
-  },
-});
+
 
 window.onload = () => {
   agregarTodasTabla(monedasFav);
+  graficoCompraVentaTodas();
 };

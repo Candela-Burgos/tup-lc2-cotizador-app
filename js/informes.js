@@ -82,11 +82,13 @@ const filtrar_informe = document.getElementById("filtrarInforme");
 const monedaSeleccionada = document.getElementById("selecMoneda").value;
 
 function graficoCompraVenta(monedaSeleccionada) {
-  const monedaSeleccionadaData = monedasFav.filter(moneda => moneda.moneda === monedaSeleccionada);
+  const monedaSeleccionadaData = monedasFav.filter(
+    (moneda) => moneda.moneda === monedaSeleccionada
+  );
 
-  const etiquetas = monedaSeleccionadaData.map(data => data.fecha);
-  const compra = monedaSeleccionadaData.map(data => data.compra);
-  const venta = monedaSeleccionadaData.map(data => data.venta);
+  const etiquetas = monedaSeleccionadaData.map((data) => data.fecha);
+  const compra = monedaSeleccionadaData.map((data) => data.compra);
+  const venta = monedaSeleccionadaData.map((data) => data.venta);
 
   const ctx = document.getElementById("miGrafica").getContext("2d");
   new Chart(ctx, {
@@ -105,8 +107,8 @@ function graficoCompraVenta(monedaSeleccionada) {
           data: venta,
           borderColor: "red",
           fill: false,
-        }
-      ]
+        },
+      ],
     },
   });
 }
@@ -137,8 +139,7 @@ const filtrar = () => {
     if (monedaFavSelec.length > 0) {
       agregarMonedaTabla(monedaFavSelec);
     } else {
-      tablaBody.innerHTML =
-        `<tr>
+      tablaBody.innerHTML = `<tr>
           <td colspan="5" >
             No existe la moneda seleccionada en su lista.
           </td>
@@ -165,10 +166,10 @@ const agregarTodasTabla = (monedas) => {
   }, {});
 
   // Agregar filas a la tabla
-  Object.keys(monedasAgrupadas).forEach(moneda => {
+  Object.keys(monedasAgrupadas).forEach((moneda) => {
     const filasMoneda = monedasAgrupadas[moneda];
     const rowSpan = filasMoneda.length;
-
+    let variacion = 0;
     filasMoneda.forEach((dato, index) => {
       const fila = document.createElement("tr");
 
@@ -186,8 +187,18 @@ const agregarTodasTabla = (monedas) => {
 
       fechaCell.textContent = dato.fecha;
       compraCell.textContent = dato.compra;
+      if (variacion < dato.compra) {
+        console.log(dato.compra, "= por dentro");
+        variacion = dato.compra;
+        variacionCell.innerHTML = `<i style="color: green" class="fa-solid fa-arrow-up"></i>`;
+      } else if (variacion == dato.compra) {
+        variacionCell.innerHTML = `<i style="color: orange" class="fa-solid fa-equals"></i>`;
+      } else {
+        variacion = dato.compra;
+        variacionCell.innerHTML = `<i style="color: red" class="fa-solid fa-arrow-down"></i>`;
+      }
+
       ventaCell.textContent = dato.venta;
-      variacionCell.textContent = "variacion";
 
       fila.appendChild(fechaCell);
       fila.appendChild(compraCell);
@@ -202,7 +213,7 @@ const agregarMonedaTabla = (monedas) => {
   const monedaCell = document.createElement("td");
   monedaCell.rowSpan = monedas.length;
   monedaCell.textContent = monedas[0].moneda;
-
+  let variacion = 0;
   monedas.forEach((dato, index) => {
     const fila = document.createElement("tr");
     if (index === 0) {
@@ -215,8 +226,19 @@ const agregarMonedaTabla = (monedas) => {
 
     fechaCell.textContent = dato.fecha;
     compraCell.textContent = dato.compra;
+
+    if (variacion < dato.compra) {
+      console.log(dato.compra, "= por dentro");
+      variacion = dato.compra;
+      variacionCell.innerHTML = `<i style="color: green" class="fa-solid fa-arrow-up"></i>`;
+    } else if (variacion == dato.compra) {
+      variacionCell.innerHTML = `<i style="color: orange" class="fa-solid fa-equals"></i>`;
+    } else {
+      variacion = dato.compra;
+      variacionCell.innerHTML = `<i style="color: red" class="fa-solid fa-arrow-down"></i>`;
+    }
+    console.log(dato.compra);
     ventaCell.textContent = dato.venta;
-    variacionCell.textContent = "variacion";
 
     fila.appendChild(fechaCell);
     fila.appendChild(compraCell);
@@ -229,8 +251,6 @@ const agregarMonedaTabla = (monedas) => {
 /*Gráfica con varias líneas*/
 //Axis X
 
-
-
 function graficoCompraVentaTodas() {
   const etiquetas = [];
   const datasets = [];
@@ -238,7 +258,7 @@ function graficoCompraVentaTodas() {
   // Crear un objeto para almacenar los datos de cada moneda por fecha
   const datosPorMoneda = {};
 
-  monedasFav.forEach(moneda => {
+  monedasFav.forEach((moneda) => {
     if (!etiquetas.includes(moneda.fecha)) {
       etiquetas.push(moneda.fecha);
     }
@@ -260,15 +280,6 @@ function graficoCompraVentaTodas() {
       borderWidth: 1,
       fill: false,
     });
-
-    datasets.push({
-      label: `Venta ${moneda}`,
-      data: datosPorMoneda[moneda].venta,
-      borderColor: `rgba(${235 - index * 30}, 54, 54, 1)`,
-      backgroundColor: `rgba(${235 - index * 30}, 54, 54, 0.2)`,
-      borderWidth: 1,
-      fill: false,
-    });
   });
 
   console.log(etiquetas);
@@ -284,8 +295,8 @@ function graficoCompraVentaTodas() {
   });
 }
 
-
-window.onload = () => {
-  agregarTodasTabla(monedasFav);
-  graficoCompraVentaTodas();
-};
+/* window.onload = () => { */
+agregarTodasTabla(monedasFav);
+graficoCompraVentaTodas();
+/* }; */
+/* SE TILDA */

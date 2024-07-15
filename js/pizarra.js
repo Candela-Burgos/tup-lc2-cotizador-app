@@ -41,7 +41,13 @@ const mesActual = fechaActual.getMonth() + 1;
 const añoActual = fechaActual.getFullYear();
 fechaActual = `${diaActual}/${mesActual}/${añoActual}`;
 
+let horaActual = new Date();
+const hora = horaActual.getHours();
+const minutos = horaActual.getMinutes();
+horaActual = `${hora}:${minutos}`;
+
 const procesoIniciado = async () => {
+  fecha_actualizada.innerHTML = `Datos actualizados al ${fechaActual} ${horaActual}hs`;
   const monedas = {
     USD: "https://dolarapi.com/v1/dolares",
     cotizaciones: "https://dolarapi.com/v1/cotizaciones",
@@ -99,7 +105,6 @@ const procesoIniciado = async () => {
       console.log("Error parsing localStorage data:", error);
       arrayFav = [];
     }
-    console.log(arrayFav);
     /* let arrayFav = JSON.parse(localStorage.favorites); */
     let monedasFav = [];
     for (let i = 0; i < arrayFav.length; i++) {
@@ -118,10 +123,16 @@ const procesoIniciado = async () => {
         cotz.classList.add("cotizacion");
         cotz.setAttribute("data-moneda", "USD");
         const pintadaUSD = () => {
-          if (
-            monedasFav.includes(dataUSD[i].nombre) &&
-            fechasFav.includes(fechaActual)
-          ) {
+          let monedasHoy = arrayFav.filter((arrayFav) =>
+            arrayFav.fecha.includes(fechaActual)
+          );
+
+          let arrayHoy = [];
+          for (let i = 0; i < monedasHoy.length; i++) {
+            arrayHoy.push(monedasHoy[i].moneda);
+          }
+
+          if (arrayHoy.includes(dataUSD[i].nombre)) {
             return `<i class="fa-solid fa-star pintada"></i>`;
           } else {
             return ` <i class="fa-solid fa-star"></i>`;
@@ -158,10 +169,16 @@ const procesoIniciado = async () => {
         cotz.classList.add("cotizacion");
         cotz.setAttribute("data-moneda", dataCotz[i].moneda);
         const pintadaCotz = () => {
-          if (
-            monedasFav.includes(dataCotz[i].nombre) &&
-            fechasFav.includes(fechaActual)
-          ) {
+          let monedasHoy = arrayFav.filter((arrayFav) =>
+            arrayFav.fecha.includes(fechaActual)
+          );
+
+          let arrayHoy = [];
+          for (let i = 0; i < monedasHoy.length; i++) {
+            arrayHoy.push(monedasHoy[i].moneda);
+          }
+
+          if (arrayHoy.includes(dataCotz[i].nombre)) {
             return `<i class="fa-solid fa-star pintada"></i>`;
           } else {
             return ` <i class="fa-solid fa-star"></i>`;

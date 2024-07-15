@@ -55,6 +55,12 @@ btnEnviar.addEventListener("click", function (event) {
     const serviceID = "default_service";
     const templateID = "template_it1x7io";
 
+    /* emailjs.send("service_gukx1iz","template_it1x7io",{
+      email_id: "candela@gmail.com",
+      from_name: "cande",
+      my_html: "asdasdafasdfawesdfsdf",
+      }); */
+
     emailjs.sendForm(serviceID, templateID, "#form").then(
       () => {
         btnEnviar.value = "Send Email";
@@ -72,6 +78,7 @@ btnEnviar.addEventListener("click", function (event) {
 });
 
 /****************************************************************************/
+const ctx = document.getElementById("miGrafica").getContext("2d");
 const tablaBody = document.getElementById("tabla-body");
 /* Traemos los datos de monedas favoritas */
 let monedasFav = JSON.parse(localStorage.getItem("favorites")) || [];
@@ -80,6 +87,8 @@ const monedaFavSelec = [];
 const selector_moneda = document.getElementById("selecMoneda");
 const filtrar_informe = document.getElementById("filtrarInforme");
 const monedaSeleccionada = document.getElementById("selecMoneda").value;
+
+let chartInstance;
 
 function graficoCompraVenta(monedaSeleccionada) {
   const monedaSeleccionadaData = monedasFav.filter(
@@ -90,8 +99,12 @@ function graficoCompraVenta(monedaSeleccionada) {
   const compra = monedaSeleccionadaData.map((data) => data.compra);
   const venta = monedaSeleccionadaData.map((data) => data.venta);
 
-  const ctx = document.getElementById("miGrafica").getContext("2d");
-  new Chart(ctx, {
+  if (chartInstance) {
+    chartInstance.destroy();
+  }
+
+  /* const ctx = document.getElementById("miGrafica").getContext("2d"); */
+  chartInstance = new Chart(ctx, {
     type: "line",
     data: {
       labels: etiquetas,
@@ -124,7 +137,6 @@ const filtrar = () => {
     graficoCompraVenta(monedaSelec); // Llamar graficoCompraVenta con la moneda seleccionada
     monedasFav.forEach((dato) => {
       if (dato.moneda === monedaSelec) {
-        console.log("Las monedas son IGUALES");
         const datos = {
           moneda: dato.moneda,
           fecha: dato.fecha,
@@ -188,7 +200,6 @@ const agregarTodasTabla = (monedas) => {
       fechaCell.textContent = dato.fecha;
       compraCell.textContent = dato.compra;
       if (variacion < dato.compra) {
-        console.log(dato.compra, "= por dentro");
         variacion = dato.compra;
         variacionCell.innerHTML = `<i style="color: green" class="fa-solid fa-arrow-up"></i>`;
       } else if (variacion == dato.compra) {
@@ -228,7 +239,6 @@ const agregarMonedaTabla = (monedas) => {
     compraCell.textContent = dato.compra;
 
     if (variacion < dato.compra) {
-      console.log(dato.compra, "= por dentro");
       variacion = dato.compra;
       variacionCell.innerHTML = `<i style="color: green" class="fa-solid fa-arrow-up"></i>`;
     } else if (variacion == dato.compra) {
@@ -237,7 +247,6 @@ const agregarMonedaTabla = (monedas) => {
       variacion = dato.compra;
       variacionCell.innerHTML = `<i style="color: red" class="fa-solid fa-arrow-down"></i>`;
     }
-    console.log(dato.compra);
     ventaCell.textContent = dato.venta;
 
     fila.appendChild(fechaCell);
@@ -282,11 +291,11 @@ function graficoCompraVentaTodas() {
     });
   });
 
-  console.log(etiquetas);
-  console.log(datasets);
+  if (chartInstance) {
+    chartInstance.destroy();
+  }
 
-  const ctx = document.getElementById("miGrafica").getContext("2d");
-  new Chart(ctx, {
+  chartInstance = new Chart(ctx, {
     type: "line",
     data: {
       labels: etiquetas,
@@ -295,8 +304,8 @@ function graficoCompraVentaTodas() {
   });
 }
 
-/* window.onload = () => { */
-agregarTodasTabla(monedasFav);
-graficoCompraVentaTodas();
-/* }; */
+window.onload = () => {
+  agregarTodasTabla(monedasFav);
+  graficoCompraVentaTodas();
+};
 /* SE TILDA */

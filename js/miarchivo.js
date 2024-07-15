@@ -3,41 +3,47 @@ function cargarTabla() {
   const tablaBody = document.getElementById("tabla-body");
   tablaBody.innerHTML = ""; // Limpiar la tabla
   const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-  console.log(favorites);
+  if (favorites.length > 0) {
+    let fechaActual = "";
+    favorites.forEach((dato, index) => {
+      const fila = document.createElement("tr");
+      if (fechaActual !== dato.fecha) {
+        fechaActual = dato.fecha;
+        const fechaCell = document.createElement("td");
+        fechaCell.rowSpan = favorites.filter(
+          (d) => d.fecha === fechaActual
+        ).length;
+        fechaCell.textContent = dato.fecha;
+        fila.appendChild(fechaCell);
+      }
+      const monedaCell = document.createElement("td");
+      monedaCell.textContent = dato.moneda;
+      const compraCell = document.createElement("td");
+      compraCell.textContent = dato.compra;
+      const ventaCell = document.createElement("td");
+      ventaCell.textContent = dato.venta;
+      const accionCell = document.createElement("td");
+      const eraserIcon = document.createElement("i");
+      eraserIcon.classList.add("fa-solid", "fa-eraser");
+      eraserIcon.style.cursor = "pointer";
+      eraserIcon.addEventListener("click", () => {
+        eliminarDato(index);
+      });
+      accionCell.appendChild(eraserIcon);
 
-  let fechaActual = "";
-  favorites.forEach((dato, index) => {
-    const fila = document.createElement("tr");
-    if (fechaActual !== dato.fecha) {
-      fechaActual = dato.fecha;
-      const fechaCell = document.createElement("td");
-      fechaCell.rowSpan = favorites.filter(
-        (d) => d.fecha === fechaActual
-      ).length;
-      fechaCell.textContent = dato.fecha;
-      fila.appendChild(fechaCell);
-    }
-    const monedaCell = document.createElement("td");
-    monedaCell.textContent = dato.moneda;
-    const compraCell = document.createElement("td");
-    compraCell.textContent = dato.compra;
-    const ventaCell = document.createElement("td");
-    ventaCell.textContent = dato.venta;
-    const accionCell = document.createElement("td");
-    const eraserIcon = document.createElement("i");
-    eraserIcon.classList.add("fa-solid", "fa-eraser");
-    eraserIcon.style.cursor = "pointer";
-    eraserIcon.addEventListener("click", () => {
-      eliminarDato(index);
+      fila.appendChild(monedaCell);
+      fila.appendChild(compraCell);
+      fila.appendChild(ventaCell);
+      fila.appendChild(accionCell);
+      tablaBody.appendChild(fila);
     });
-    accionCell.appendChild(eraserIcon);
-
-    fila.appendChild(monedaCell);
-    fila.appendChild(compraCell);
-    fila.appendChild(ventaCell);
-    fila.appendChild(accionCell);
-    tablaBody.appendChild(fila);
-  });
+  } else {
+    tablaBody.innerHTML = `<tr>
+            <td colspan="5" >
+              No existe la moneda seleccionada en su lista.
+            </td>
+          </tr>`;
+  }
 }
 
 // Función para eliminar un dato

@@ -55,25 +55,27 @@ btnEnviar.addEventListener("click", function (event) {
     const serviceID = "default_service";
     const templateID = "template_it1x7io";
 
-    /* emailjs.send("service_gukx1iz","template_it1x7io",{
-      email_id: "candela@gmail.com",
-      from_name: "cande",
-      my_html: "asdasdafasdfawesdfsdf",
-      }); */
-
-    emailjs.sendForm(serviceID, templateID, "#form").then(
-      () => {
-        btnEnviar.value = "Send Email";
-        mostrarSuccess();
-        limpiarCampos();
-        ocultarModal();
-      },
-      (err) => {
-        btnEnviar.value = "Send Email";
-        console.log(JSON.stringify(err));
-        mostrarError();
-      }
-    );
+    // Captura el contenido de la tabla
+    const tableHTML = document.getElementById("tablaEntera").outerHTML;
+    emailjs
+      .send(serviceID, templateID, {
+        email_id: input_email.value,
+        from_name: input_name.value,
+        my_html: tableHTML,
+      })
+      .then(
+        () => {
+          btnEnviar.value = "Send Email";
+          mostrarSuccess();
+          limpiarCampos();
+          ocultarModal();
+        },
+        (err) => {
+          btnEnviar.value = "Send Email";
+          console.log(JSON.stringify(err));
+          mostrarError();
+        }
+      );
   }
 });
 
